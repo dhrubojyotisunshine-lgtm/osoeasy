@@ -22,3 +22,17 @@
 /* Product hero showcase: separates the white artwork from the page canvas. */
 .hero-visual{padding:22px}.hero-visual:before{content:"";position:absolute;inset:4% 0 1% 3%;z-index:-1;border-radius:42px;background:linear-gradient(145deg,#dff3ff 0%,#edf8ff 52%,#c8eaff 100%);border:1px solid rgba(7,142,232,.18);box-shadow:0 35px 80px rgba(7,84,184,.18)}.hero-visual:after{content:"";position:absolute;width:150px;height:150px;right:-18px;bottom:-14px;z-index:-1;border-radius:50%;background:radial-gradient(circle,rgba(35,185,242,.24),rgba(35,185,242,0) 70%)}.hero-image-shell{position:relative;padding:14px;border-radius:34px!important;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.95);box-shadow:inset 0 0 0 1px rgba(7,142,232,.08);overflow:hidden}.hero-image-shell img{width:100%!important;max-width:100%!important;margin:0!important;border-radius:24px;mix-blend-mode:normal!important;filter:hue-rotate(42deg) saturate(1.08) contrast(1.02);box-shadow:0 18px 40px rgba(7,54,125,.1)}.order-card,.growth-card{border:1px solid rgba(7,142,232,.2);box-shadow:0 18px 45px rgba(7,54,125,.18)}.float-icon{background:#e7f5ff;color:#078ee8}
 @media(max-width:760px){.hero-visual{padding:12px}.hero-visual:before{inset:5% 0 0;border-radius:28px}.hero-image-shell{padding:8px;border-radius:24px!important}.hero-image-shell img{border-radius:18px}}
+
+/* Illustrated homepage feature cards */
+.feature-grid .feature-card:before{content:"";display:block;height:158px;margin:-28px -28px 24px;background-image:url('assets/feature-card-atlas.png');background-repeat:no-repeat;background-size:400% 300%;border-bottom:1px solid var(--line)}
+.feature-grid .feature-card:nth-child(1):before{background-position:33.333% 0}
+.feature-grid .feature-card:nth-child(2):before{background-position:66.666% 100%}
+.feature-grid .feature-card:nth-child(3):before{background-position:33.333% 100%}
+.feature-grid .feature-card:nth-child(4):before{background-position:33.333% 50%}
+.feature-grid .feature-card:nth-child(5):before{background-position:100% 50%}
+.feature-grid .feature-card:nth-child(6):before{background-position:0 100%}
+.feature-grid .feature-card:nth-child(7):before{background-position:66.666% 50%}
+.feature-grid .feature-card:nth-child(8):before{background-position:100% 0}
+.feature-grid .feature-card.featured:before{height:190px;background-size:400% 300%}
+.feature-grid .feature-card .feature-icon{position:relative;margin-top:-47px;border:4px solid #fff;box-shadow:0 8px 20px rgba(7,54,125,.16)}
+@media(max-width:760px){.feature-grid .feature-card:before{height:180px}.feature-grid .feature-card.featured:before{height:180px}}
