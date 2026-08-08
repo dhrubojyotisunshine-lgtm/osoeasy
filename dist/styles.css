@@ -13,3 +13,8 @@
 .hero-copy,.hero-visual{min-width:0}
 @media(max-width:1050px){.nav-wrap{justify-content:space-between}.menu-toggle{margin-left:auto;flex:none}}
 @media(max-width:760px){.hero-copy{width:100%;overflow:hidden}.hero h1{max-width:100%;overflow-wrap:break-word}.hero-copy>p{max-width:100%}.hero-note{max-width:100%}}
+
+/* MOOREZY brand system */
+:root{--ink:#071b4f;--muted:#5d6c8c;--green:#078ee8;--green-dark:#0754b8;--mint:#e8f5ff;--line:#dbe7f4;--cream:#f8fbff;--yellow:#23b9f2;--shadow:0 24px 70px rgba(7,54,125,.13)}
+.brand{height:64px;min-width:116px;overflow:hidden}.brand-logo{display:block;width:116px;height:86px;object-fit:contain;mix-blend-mode:multiply}.site-header.scrolled .brand{height:58px}.site-header.scrolled .brand-logo{height:78px}.brand-light{padding:5px 8px;height:auto;border-radius:12px;background:#fff}.brand-light .brand-logo{width:130px;height:96px}.hero-image-shell img{filter:hue-rotate(42deg) saturate(1.08)}
+@media(max-width:430px){.brand{height:58px;min-width:96px}.brand-logo{width:96px;height:72px}}

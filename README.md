@@ -1,6 +1,6 @@
-# OsoEasy
+# MOOREZY
 
-Standalone responsive recreation of the Fabklean homepage experience. This project is fully isolated from Taxation Library and has no runtime dependencies.
+Standalone responsive recreation of the MOOREZY homepage experience. This project is fully isolated from Taxation Library and has no runtime dependencies.
 
 ## Build
 
