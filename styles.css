@@ -8,6 +8,18 @@
 @media(max-width:430px){.hero h1{font-size:41px}.hero-copy>p{font-size:16px}.hero-image-shell img{width:130%;margin-left:-15%}.floating-card{display:none}.section-copy h2,.section-heading h2{font-size:34px;letter-spacing:-1.6px}.device-art{min-height:300px}.laptop-screen{height:155px}.phone{width:78px;height:155px}.tab-panel{padding:24px}.panel-copy h3,.commerce-card h3{font-size:27px}.mini-solutions{display:block}.mini-solutions article+article{margin-top:15px}.stats-grid{grid-template-columns:1fr}.stats-grid>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:22px}.final-cta h2{letter-spacing:-2px}.footer-grid{grid-template-columns:1fr}.footer-brand,.footer-grid>div:last-child{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
 
+/* Illustrated business-stage tabs */
+.stage-visual{position:relative;min-height:355px;border:1px solid rgba(7,142,232,.16);border-radius:22px;overflow:hidden;background-color:#edf8ff;background-image:linear-gradient(180deg,transparent 58%,rgba(4,30,75,.78)),url('assets/feature-card-atlas.png');background-repeat:no-repeat;background-size:100% 100%,400% 300%;box-shadow:0 22px 50px rgba(7,54,125,.14)}
+.stage-visual span,.stage-visual b{position:absolute;z-index:1;left:26px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+.stage-visual span{bottom:52px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.stage-visual b{bottom:22px;font:800 20px Manrope,sans-serif}
+.stage-single{background-position:center,0 0}
+.stage-multi{background-position:center,0 50%}
+.stage-new{background-position:center,0 100%}
+.stage-factory{background-position:center,100% 100%}
+@media(max-width:760px){.stage-visual{min-height:300px}}
+@media(max-width:430px){.stage-visual{min-height:250px}.stage-visual span,.stage-visual b{left:20px}}
+
 /* Grid children must be allowed to shrink at narrow viewport widths. */
 .feature-menu{max-height:min(610px,calc(100vh - 105px));overflow-y:auto}.feature-menu a{line-height:1.3}
 .hero-copy,.hero-visual{min-width:0}
