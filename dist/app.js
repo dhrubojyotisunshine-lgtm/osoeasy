@@ -14,3 +14,5 @@ document.querySelector('#newsletter').addEventListener('submit',event=>{event.pr
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){closeMenu();document.querySelectorAll('.dropdown.open').forEach(item=>item.classList.remove('open'))}});
 document.querySelectorAll('a[href="https://app.fabklean.com/laundry/login"]').forEach(a=>a.href='login.html');
 document.querySelectorAll('a[href="https://app.fabklean.com/laundry/signup"]').forEach(a=>a.href='signup.html');
+document.querySelectorAll('a[href$="/privacy-policy"]').forEach(a=>a.href='privacy-policy.html');
+document.querySelectorAll('a[href$="/terms-and-conditions"]').forEach(a=>a.href='terms-and-conditions.html');
