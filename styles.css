@@ -49,14 +49,14 @@
 .dropdown.open>.dropdown-toggle span{transform:rotate(180deg)}
 @media(max-width:1050px){.site-nav{align-self:auto}.site-nav>.nav-link,.site-nav>.nav-item{height:auto;display:block}.site-nav .nav-link{width:100%;min-height:44px;justify-content:flex-start;padding:0 12px}.dropdown-toggle span{margin-left:auto}.site-nav>.nav-item>.dropdown-menu{margin-top:5px}}
 
-/* Dark illuminated MOOREZY logo artwork */
-.brand{height:66px;min-width:108px;border-radius:10px;overflow:hidden;background:#031421}
-.brand-logo{width:108px;height:72px;object-fit:contain;mix-blend-mode:normal;background:#031421}
+/* Original MOOREZY artwork, unchanged, on its intended white background. */
+.brand{width:116px;height:66px;min-width:116px;border-radius:10px;overflow:hidden;background:#fff}
+.brand-logo{display:block;width:116px;height:86px;object-fit:contain;mix-blend-mode:normal;background:#fff}
 .site-header.scrolled .brand{height:58px}
-.site-header.scrolled .brand-logo{width:99px;height:66px}
-.brand-light{width:max-content;height:auto;padding:0;border:1px solid rgba(34,184,255,.22);border-radius:12px;background:#031421;box-shadow:0 10px 30px rgba(0,8,20,.25)}
-.brand-light .brand-logo{width:150px;height:100px;mix-blend-mode:normal;background:#031421}
-@media(max-width:430px){.brand{height:56px;min-width:90px}.brand-logo{width:90px;height:60px}.site-header.scrolled .brand-logo{width:87px;height:58px}.brand-light .brand-logo{width:132px;height:88px}}
+.site-header.scrolled .brand-logo{width:108px;height:78px}
+.brand-light{width:max-content;height:auto;padding:5px 8px;border:0;border-radius:12px;background:#fff;box-shadow:none}
+.brand-light .brand-logo{width:130px;height:96px;mix-blend-mode:normal;background:#fff}
+@media(max-width:430px){.brand{width:96px;height:58px;min-width:96px}.brand-logo{width:96px;height:72px}.site-header.scrolled .brand-logo{width:92px;height:68px}.brand-light .brand-logo{width:120px;height:88px}}
 
 /* Grid children must be allowed to shrink at narrow viewport widths. */
 .feature-menu{max-height:min(610px,calc(100vh - 105px));overflow-y:auto}.feature-menu a{line-height:1.3}
