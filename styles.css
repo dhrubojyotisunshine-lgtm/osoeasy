@@ -93,3 +93,21 @@
 
 /* Fill the supported-device mockups with real product imagery. */
 .device-art .laptop-screen{position:relative;padding:0;background:#fff url('assets/laundry-platform-hero.png') center/cover no-repeat;overflow:hidden}.device-art .laptop-screen:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(7,142,232,.04),transparent 55%);pointer-events:none}.device-art .mini-side,.device-art .mini-main{display:none}.device-art .phone{background:#fff url('assets/feature-card-atlas.png') 33.333% 0/400% 300% no-repeat}.device-art .phone-notch{position:relative;z-index:2}.device-art .phone-map{display:none}.device-art .device-badge{border:1px solid rgba(7,142,232,.18);color:var(--ink);box-shadow:0 14px 35px rgba(7,54,125,.15)}
+
+.site-header .brand,.site-header .brand-logo{background:transparent!important}
+
+/* Mobile header and partner-grid hardening. */
+@media(max-width:430px){
+  .site-header .brand{display:flex;width:108px;min-width:108px;height:64px;overflow:hidden}
+  .site-header .brand-logo{width:108px;height:76px;object-fit:contain;object-position:center;mix-blend-mode:normal}
+  .site-header.scrolled .brand{height:60px}
+  .site-header.scrolled .brand-logo{width:104px;height:74px}
+  .brand-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .partner-brand{width:100%;min-width:0;overflow:hidden}
+  .partner-brand>span{min-width:0}
+  .partner-brand b{display:block;overflow-wrap:anywhere}
+}
+@media(max-width:350px){
+  .brand-row{grid-template-columns:1fr}
+  .partner-brand,.partner-brand:nth-child(4),.partner-brand:nth-child(5),.partner-brand:last-child{grid-column:auto;justify-content:flex-start}
+}
