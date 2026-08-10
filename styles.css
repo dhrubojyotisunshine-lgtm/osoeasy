@@ -231,3 +231,6 @@
   .footer-grid{grid-template-columns:1fr 1fr;gap:20px 24px}
   .footer-brand,.footer-grid>div:last-child{grid-column:1/-1}
 }
+
+/* Tighter desktop homepage section rhythm. */
+@media(min-width:761px){body:not(.subpage) .section{padding:70px 0}}
