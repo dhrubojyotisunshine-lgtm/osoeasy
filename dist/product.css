@@ -1,0 +1,549 @@
+/* Deep product pages: workflow diagrams, real app screenshots, interface mockups,
+   role/outcome/FAQ blocks. Built on the tokens in styles.css so MOOREZY keeps its identity. */
+
+:root{
+  --app-navy:#0d2b52;
+  --app-navy-2:#14386a;
+  --app-green:#009c4a;
+  --app-gold:#f5c518;
+  --app-field:#dce9f7;
+  --app-red:#e2445c;
+}
+
+/* ---------- generic page scaffolding ---------- */
+.prod-hero{padding:150px 0 64px;background:linear-gradient(180deg,var(--mint),#fff)}
+.prod-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.prod-hero h1{font-size:clamp(32px,4.4vw,52px);line-height:1.08;letter-spacing:-1.5px;margin-bottom:18px}
+.prod-hero p.lead{font-size:clamp(16px,1.5vw,19px);color:var(--muted);max-width:56ch;margin-bottom:28px}
+.prod-section{padding:clamp(56px,7vw,92px) 0}
+.prod-section.tint{background:var(--cream)}
+.prod-head{max-width:60ch;margin-bottom:clamp(28px,4vw,44px)}
+.prod-head.centered{margin-inline:auto;text-align:center}
+.prod-head h2{font-size:clamp(26px,3.2vw,38px);line-height:1.15;letter-spacing:-1px;margin-bottom:12px}
+.prod-head p{color:var(--muted);margin:0}
+
+/* ---------- problem vs solution (P1-01) ---------- */
+.ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ps-card{border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,3vw,32px);background:#fff}
+.ps-card.problem{background:#fff7f5;border-color:#f3d9d3}
+.ps-card.solution{background:var(--mint);border-color:#c8e8db}
+.ps-card h2{font-size:20px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.ps-card h2 i{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;font-style:normal;font-size:15px;flex:none}
+.ps-card.problem h2 i{background:#f7dcd6;color:#b4432c}
+.ps-card.solution h2 i{background:#bfe6d6;color:var(--green-dark)}
+.ps-card ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ps-card li{display:flex;gap:11px;font-size:15px;line-height:1.55;color:#41524e}
+.ps-card li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;margin-top:8px;background:currentColor;opacity:.35}
+
+/* ---------- workflow diagram (P0-04/05/06/09) ---------- */
+.flow{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(168px,1fr);gap:14px;padding:8px 0 4px;overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.flow::-webkit-scrollbar{height:6px}
+.flow::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+.flow-step{position:relative;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 18px 18px;min-width:0}
+.flow-step b{display:block;font-family:Manrope,sans-serif;font-size:15px;margin-bottom:6px;letter-spacing:-.2px}
+.flow-step>span:not(.flow-num){display:block;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.flow-step .flow-num{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:13px;font-weight:700;margin-bottom:12px;flex:none}
+.flow-step::after{content:"→";position:absolute;top:50%;right:-13px;transform:translateY(-50%);color:var(--line);font-size:17px;z-index:1}
+.flow-step:last-child::after{display:none}
+.flow.compact .flow-step{padding:16px 14px}
+
+/* ---------- real screenshots (P0-03, P3-03, P3-09) ---------- */
+/* A phone screenshot must never stretch to container width. `1fr` did exactly that on
+   pages with only one or two shots (printing-tags, reporting-analytics, integrations-support,
+   b2b), blowing a 560px-wide phone capture up to 1180px. Capping the track at 210px keeps
+   every screenshot phone-sized and centres the group however many there are. */
+.shot-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,210px));justify-content:center;gap:clamp(14px,2.4vw,26px);align-items:start}
+.shot{margin:0;text-align:center;max-width:210px;justify-self:center}
+.shot-frame{position:relative;border-radius:26px;padding:9px;background:linear-gradient(160deg,#20375c,#0d2b52);box-shadow:0 22px 48px rgba(13,43,82,.24)}
+.shot-frame::before{content:"";position:absolute;top:15px;left:50%;transform:translateX(-50%);width:34%;height:5px;border-radius:99px;background:rgba(255,255,255,.32);z-index:2}
+.shot-frame img{display:block;width:100%;height:auto;border-radius:19px;background:#0d2b52}
+.shot figcaption{margin-top:12px;font-size:13.5px;font-weight:600;color:var(--muted)}
+.shot-lead .shot-frame{max-width:300px;margin-inline:auto}
+.shot-note{margin-top:18px;font-size:13px;color:var(--muted);text-align:center}
+
+/* ---------- capability grid ---------- */
+.cap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px}
+.cap{border:1px solid var(--line);border-radius:18px;padding:24px 22px;background:#fff}
+.cap b{display:block;font-family:Manrope,sans-serif;font-size:16.5px;margin-bottom:8px}
+.cap p{margin:0;font-size:14.5px;line-height:1.6;color:var(--muted)}
+.cap-mark{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--mint);color:var(--green-dark);margin-bottom:14px;font-size:15px}
+
+/* ---------- roles (P2-08) ---------- */
+.role-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.role{border-radius:18px;padding:22px;background:#fff;border:1px solid var(--line)}
+.role i{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:11px;background:var(--app-navy);color:#fff;font-style:normal;font-size:14px;font-weight:700;margin-bottom:12px}
+.role b{display:block;font-family:Manrope,sans-serif;margin-bottom:6px}
+.role p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
+
+/* ---------- outcomes (P2-07) ---------- */
+.out-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.out{padding:24px;border-radius:18px;background:var(--mint);border:1px solid #cfe9dd}
+.out b{display:block;font-family:Manrope,sans-serif;font-size:17px;margin-bottom:7px;color:var(--green-dark)}
+.out p{margin:0;font-size:14.5px;line-height:1.6;color:#3d5450}
+
+/* ---------- FAQ (P2-04) ---------- */
+.faq-list{display:grid;gap:12px;max-width:860px}
+.faq-item{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:18px 22px;font-family:Manrope,sans-serif;font-weight:700;font-size:16px;display:flex;justify-content:space-between;gap:16px;align-items:center;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-size:20px;color:var(--green);flex:none;transition:.2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{margin:0;padding:0 22px 20px;color:var(--muted);font-size:15px;line-height:1.65}
+.faq-item summary:focus-visible{outline:3px solid var(--green);outline-offset:-3px}
+
+/* ---------- related links ---------- */
+.related{display:flex;flex-wrap:wrap;gap:10px}
+.related a{border:1px solid var(--line);border-radius:99px;padding:10px 18px;font-size:14px;font-weight:600;background:#fff;transition:.18s}
+.related a:hover,.related a:focus-visible{border-color:var(--green);color:var(--green-dark)}
+
+/* ---------- homepage additions ---------- */
+.value-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.value-chip{display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:99px;padding:9px 17px;background:#fff;font-size:14px;font-weight:600}
+.value-chip i{display:grid;place-items:center;width:24px;height:24px;border-radius:7px;background:var(--mint);color:var(--green-dark);font-style:normal;font-size:12px;flex:none}
+.center-cta{display:flex;justify-content:center;margin-top:36px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:22px 0 14px}
+.mini-link{display:inline-block;margin-top:10px;font-weight:700;font-size:14px;color:var(--green-dark)}
+.related-inline{font-weight:700;color:var(--green-dark)}
+.footer-quiet{display:inline-block;margin-top:12px;font-size:14px;opacity:.8;text-decoration:underline}
+a.cap,a.feature-card{display:block;transition:.2s;color:inherit}
+a.cap:hover,a.cap:focus-visible{border-color:var(--green);transform:translateY(-3px);box-shadow:0 16px 36px rgba(16,42,39,.09)}
+.cap-link{display:inline-block;margin-top:13px;font-size:13.5px;font-weight:700;color:var(--green-dark)}
+/* On feature cards the preceding <small> is inline, so an inline-block link ran straight on
+   from it ("Balance tracked automaticallyExplore →"). Force both onto their own line. */
+.feature-card>small{display:block}
+.feature-card .cap-link{display:block;margin-top:12px}
+
+/* Focus visibility across new interactive surfaces (P3-10). */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--green);outline-offset:2px;border-radius:6px}
+
+/* ================= interface mockups ================= */
+.ui-win{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px rgba(16,42,39,.13);font-size:12px}
+.ui-bar{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--app-navy);color:#fff}
+.ui-dots{display:flex;gap:5px}
+.ui-dots i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.35)}
+.ui-title{font-weight:700;font-size:12.5px;letter-spacing:.1px}
+.ui-chip{margin-left:auto;background:var(--app-gold);color:#3a2c00;border-radius:99px;padding:3px 10px;font-size:10.5px;font-weight:700}
+.ui-body{padding:14px;background:#f6f9fb}
+.ui-btn{border:0;border-radius:9px;padding:8px 13px;font-size:11.5px;font-weight:700;background:var(--app-field);color:#26527f;cursor:default}
+.ui-btn.primary{background:var(--app-green);color:#fff}
+
+.ui-phone{width:min(300px,100%);margin-inline:auto;border-radius:30px;padding:10px;background:linear-gradient(160deg,#20375c,var(--app-navy));box-shadow:0 22px 48px rgba(13,43,82,.26)}
+.ui-phone-top{display:grid;place-items:center;padding:3px 0 8px}
+.ui-phone-top span{width:64px;height:5px;border-radius:99px;background:rgba(255,255,255,.32)}
+.ui-phone-head{color:#fff;font-weight:700;text-align:center;padding-bottom:12px;font-size:14px}
+.ui-phone-body{background:#fff;border-radius:22px;padding:14px;font-size:12px}
+
+.ui-rows{display:grid;gap:7px;margin:10px 0}
+.ui-row{display:grid;grid-template-columns:1fr auto auto;gap:9px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 11px}
+.ui-row>span:first-child{font-weight:600;color:var(--ink);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ui-row>span:nth-child(2){color:var(--muted);white-space:nowrap}
+.ui-state{border-radius:99px;padding:2px 9px;font-size:10px;font-weight:700;white-space:nowrap}
+.ui-state.ok{background:#d7f0e4;color:#0a6b4d}
+.ui-state.warn{background:#fdf0d2;color:#8a6100}
+.ui-state.idle{background:#e8edf2;color:#5b6b7c}
+
+.ui-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px}
+.ui-tile{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px}
+.ui-tile small{display:block;color:var(--muted);font-size:10.5px;margin-bottom:3px}
+.ui-tile b{display:block;font-family:Manrope,sans-serif;font-size:15px}
+.ui-tile span{font-size:10.5px;font-weight:700;color:var(--green)}
+
+.ui-panel{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px;margin-top:9px}
+.ui-panel-head{font-weight:700;font-size:11.5px;margin-bottom:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.ui-bars{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:6px;align-items:end;height:76px}
+.ui-bars span{display:grid;align-content:end;gap:5px;text-align:center;height:100%}
+.ui-bars i{display:block;height:var(--h);border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,var(--green),#4fc59b)}
+.ui-bars small{font-size:9.5px;color:var(--muted)}
+.ui-spark{width:100%;height:38px}
+.ui-spark polyline{fill:none;stroke:var(--green);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.ui-donut{position:relative;display:grid;place-items:center;width:104px;margin:4px auto 8px;text-align:center}
+.ui-donut svg{width:104px;height:104px;transform:rotate(-90deg)}
+.ui-donut circle{fill:none;stroke-width:5}
+.ui-donut-track{stroke:#e6eef0}
+.ui-donut-value{stroke:var(--green);stroke-linecap:round;stroke-dasharray:calc(var(--pct)*1.005) 200}
+.ui-donut b{position:absolute;top:38%;font-family:Manrope,sans-serif;font-size:17px}
+.ui-donut small{position:absolute;top:57%;font-size:9.5px;color:var(--muted)}
+.ui-legend{display:grid;gap:5px;font-size:10.5px;color:var(--muted)}
+.ui-legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:6px}
+.ui-legend i.a{background:var(--green)}.ui-legend i.b{background:#4fc59b}.ui-legend i.c{background:#bfe6d6}
+
+/* POS */
+.ui-pos{display:grid;grid-template-columns:1.25fr .95fr;gap:12px}
+.ui-search{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-weight:600;margin-bottom:9px}
+.ui-search b{float:right;background:var(--app-gold);color:#3a2c00;border-radius:99px;padding:1px 8px;font-size:10px}
+.ui-cats{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px}
+.ui-cats b,.ui-cats span{border-radius:99px;padding:5px 11px;font-size:10.5px;background:#fff;border:1px solid var(--line);color:var(--muted)}
+.ui-cats b{background:var(--app-navy);color:#fff;border-color:var(--app-navy)}
+.ui-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.ui-grid span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:13px 4px;text-align:center;font-size:10.5px;font-weight:600}
+.ui-pos-right{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px}
+.ui-cart-title{font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:8px}
+.ui-total{display:flex;justify-content:space-between;padding:5px 0;font-size:11.5px}
+.ui-total.muted{color:var(--muted)}
+.ui-total.grand{border-top:1px dashed var(--line);margin-top:6px;padding-top:9px;font-size:14px;font-weight:800;font-family:Manrope,sans-serif}
+.ui-actions{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;margin-top:11px}
+
+/* route / driver */
+.ui-route{display:grid;grid-template-columns:1.15fr 1fr;gap:12px}
+.ui-map{position:relative;background:linear-gradient(160deg,#eaf3f0,#dfeef7);border-radius:11px;overflow:hidden;border:1px solid var(--line)}
+.ui-map svg{display:block;width:100%;height:100%}
+.ui-road{fill:none;stroke:var(--green);stroke-width:3;stroke-dasharray:7 6;stroke-linecap:round}
+.ui-stops circle{fill:#fff;stroke:var(--app-navy);stroke-width:3}
+.ui-pin{position:absolute;background:var(--app-navy);color:#fff;border-radius:99px;padding:3px 9px;font-size:9.5px;font-weight:700}
+.ui-pin.start{left:8px;bottom:9px}
+.ui-pin.end{right:8px;top:22px;background:var(--green)}
+.ui-driver{display:flex;align-items:center;gap:9px;background:var(--app-navy);color:#fff;border-radius:10px;padding:9px 11px;margin-top:9px}
+.ui-driver i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--app-gold);color:#3a2c00;font-style:normal;font-weight:800;font-size:11px;flex:none}
+.ui-driver b{display:block;font-size:12px}
+.ui-driver small{opacity:.75;font-size:10px}
+
+/* tags */
+.ui-tag-wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:12px;align-items:start}
+.ui-label{background:#fff;border:1px dashed #b9c6c2;border-radius:9px;padding:12px;text-align:center}
+.ui-label-head{display:flex;justify-content:space-between;font-size:9.5px;font-weight:700;margin-bottom:9px}
+.ui-label-head span{color:var(--muted);font-weight:600}
+.ui-barcode{display:flex;justify-content:center;align-items:flex-end;gap:1.5px;height:44px;margin-bottom:7px}
+.ui-barcode i{width:var(--w);height:100%;background:var(--ink)}
+.ui-label-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;font-weight:700;letter-spacing:.6px}
+.ui-label-meta{display:grid;gap:2px;margin-top:8px;font-size:9.5px;color:var(--muted)}
+.ui-printer{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-top:9px}
+.ui-printer span{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;background:var(--mint);color:var(--green-dark);font-size:15px;flex:none}
+.ui-printer b{display:block;font-size:11.5px}
+.ui-printer small{color:var(--muted);font-size:10px}
+
+/* customer app tracking */
+.ui-track-card{background:var(--app-navy);color:#fff;border-radius:12px;padding:12px}
+.ui-track-card small{opacity:.72;font-size:10.5px}
+.ui-track-card b{display:block;font-family:Manrope,sans-serif;font-size:16px;margin:3px 0}
+.ui-track-card span{font-size:11px;opacity:.85}
+.ui-track{list-style:none;margin:12px 0;padding:0 0 0 20px;display:grid;gap:12px;position:relative}
+.ui-track::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.ui-track li{position:relative}
+.ui-track li::before{content:"";position:absolute;left:-19px;top:3px;width:12px;height:12px;border-radius:50%;background:#fff;border:2px solid var(--line)}
+.ui-track li.done::before{background:var(--green);border-color:var(--green)}
+.ui-track li.active::before{background:var(--app-gold);border-color:var(--app-gold);box-shadow:0 0 0 4px rgba(245,197,24,.25)}
+.ui-track b{display:block;font-size:11.5px}
+.ui-track span{font-size:10px;color:var(--muted)}
+.ui-app-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+
+/* driver app */
+.ui-drv-tabs{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:11px 0 3px}
+.ui-drv-tabs b,.ui-drv-tabs span{text-align:center;border-radius:8px;padding:7px;font-size:11px;background:var(--app-field);color:#26527f}
+.ui-drv-tabs b{background:var(--app-navy);color:#fff}
+.ui-drv-stop{background:#f6f9fb;border:1px solid var(--line);border-radius:11px;padding:11px;margin-top:10px}
+.ui-drv-stop b{display:block;font-size:12px}
+.ui-drv-stop small{display:block;color:var(--muted);font-size:10.5px;margin-bottom:9px}
+.ui-drv-actions{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.ui-drv-collect{display:flex;justify-content:space-between;align-items:center;background:var(--mint);border-radius:8px;padding:8px 10px;margin:9px 0;font-size:11px}
+.ui-drv-collect b{font-size:14px;font-family:Manrope,sans-serif}
+.ui-drv-confirm{width:100%}
+
+/* dashboards & boards */
+.ui-dash{display:grid;gap:9px}
+.ui-dash-split{display:grid;grid-template-columns:1.35fr 1fr;gap:9px}
+.ui-lanes{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:7px}
+.ui-lane{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 8px;text-align:center}
+.ui-lane-title{display:block;margin:0 0 3px;font-size:10.5px;font-family:Manrope,sans-serif}
+.ui-lane small{font-size:9.5px;color:var(--muted)}
+.ui-lane-cards{display:grid;gap:3px;margin-top:8px}
+.ui-lane-cards i{height:7px;border-radius:3px;background:var(--mint)}
+.ui-lane.a .ui-lane-cards i{background:#cfe3f5}
+.ui-lane.b .ui-lane-cards i{background:#d9e8cf}
+.ui-lane.c .ui-lane-cards i{background:#fdeec4}
+.ui-lane.d .ui-lane-cards i{background:#f8dcd6}
+.ui-lane.e .ui-lane-cards i{background:#cfe9dd}
+.ui-plant-foot{margin-top:9px}
+
+.ui-perm{margin-top:9px}
+.ui-perm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ui-perm-grid span{border:1px solid var(--line);border-radius:7px;padding:7px 5px;text-align:center;font-size:10px;color:var(--muted);background:#fff}
+.ui-perm-grid span.on{background:#d7f0e4;border-color:#a9dcc5;color:#0a6b4d;font-weight:700}
+
+/* payments / packages */
+.ui-pay{display:grid;grid-template-columns:1fr 1.05fr;gap:12px}
+.ui-pay-card{background:linear-gradient(150deg,var(--app-green),#0a7a52);color:#fff;border-radius:12px;padding:14px}
+.ui-pay-card small{opacity:.8;font-size:10.5px}
+.ui-pay-card b{display:block;font-family:Manrope,sans-serif;font-size:24px;margin:4px 0}
+.ui-pay-card>span{font-size:10.5px;opacity:.85}
+.ui-pay-methods{display:flex;flex-wrap:wrap;gap:5px;margin:11px 0}
+.ui-pay-methods span{background:rgba(255,255,255,.2);border-radius:99px;padding:3px 9px;font-size:10px;font-weight:600}
+.ui-pkg-card{background:var(--app-navy);color:#fff;border-radius:12px;padding:14px;margin-bottom:9px}
+.ui-pkg-card small{opacity:.75;font-size:10.5px}
+.ui-pkg-card b{display:block;font-family:Manrope,sans-serif;font-size:20px;margin:4px 0}
+.ui-pkg-card>span{font-size:10.5px;opacity:.8}
+.ui-meter{height:8px;border-radius:99px;background:rgba(255,255,255,.22);margin:11px 0 6px;overflow:hidden}
+.ui-meter i{display:block;height:100%;width:calc(var(--pct)*1%);background:var(--app-gold);border-radius:99px}
+.ui-pkg-left{font-size:10px;opacity:.85}
+.ui-renew{display:flex;justify-content:space-between;align-items:center;background:var(--mint);border-radius:9px;padding:9px 11px;font-size:11px;margin-top:9px}
+
+/* notifications */
+.ui-notif{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ui-thread{display:grid;gap:7px;align-content:start}
+.ui-msg{background:#fff;border:1px solid var(--line);border-radius:10px 10px 10px 3px;padding:9px 11px}
+.ui-msg b{display:block;font-size:11px;color:var(--green-dark);margin-bottom:2px}
+.ui-msg span{font-size:10.5px;color:var(--muted);line-height:1.45}
+
+/* loyalty */
+.ui-loyal{display:grid;grid-template-columns:.85fr 1.15fr;gap:12px;align-items:start}
+.ui-loyal-card{background:linear-gradient(150deg,var(--app-navy),#1c4a80);color:#fff;border-radius:12px;padding:14px}
+.ui-loyal-card small{opacity:.75;font-size:10.5px}
+.ui-loyal-card b{display:block;font-family:Manrope,sans-serif;font-size:30px;line-height:1.1;margin:3px 0}
+.ui-loyal-card>span{font-size:10.5px;opacity:.85}
+.ui-refer{display:flex;justify-content:space-between;align-items:center;background:var(--mint);border-radius:9px;padding:9px 11px;font-size:11px;margin-top:9px}
+.ui-refer b{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;letter-spacing:.5px}
+
+/* b2b invoice */
+.ui-inv-head{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px;margin-bottom:9px}
+.ui-inv-head b{display:block;font-size:13px;font-family:Manrope,sans-serif}
+.ui-inv-head small{color:var(--muted);font-size:10.5px}
+
+/* integrations */
+.ui-int{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.ui-int-card{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 11px;font-size:11px}
+.ui-int-card b{font-weight:600}
+
+/* storefront */
+.ui-shop-hero{background:linear-gradient(140deg,var(--app-navy),#1c4a80);color:#fff;border-radius:11px;padding:16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ui-shop-hero b{font-family:Manrope,sans-serif;font-size:16px;line-height:1.25}
+.ui-shop-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:9px 0}
+.ui-shop-card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px;text-align:center}
+.ui-shop-card span{display:block;height:30px;border-radius:6px;background:var(--mint);margin-bottom:6px}
+.ui-shop-card b{display:block;font-size:10.5px}
+.ui-shop-card small{font-size:9.5px;color:var(--muted)}
+.ui-slots{display:flex;gap:6px;flex-wrap:wrap}
+.ui-slots span{border:1px solid var(--line);border-radius:99px;padding:5px 10px;font-size:10px;background:#fff;color:var(--muted)}
+.ui-slots span.on{background:var(--green);border-color:var(--green);color:#fff;font-weight:700}
+
+/* ================= responsive (P3-08: 1920/1440/1366/tablet/430/390/375) ================= */
+@media (max-width:1080px){
+  .prod-hero-grid{grid-template-columns:1fr;gap:36px}
+  .ui-dash-split,.ui-notif,.ui-pay,.ui-route,.ui-tag-wrap,.ui-pos{grid-template-columns:1fr}
+  .ui-lanes{grid-auto-flow:row}
+}
+@media (max-width:860px){
+  .ps-grid{grid-template-columns:1fr}
+  .prod-hero{padding:124px 0 48px}
+}
+@media (max-width:640px){
+  .flow{grid-auto-columns:minmax(200px,78%)}
+  .flow-step::after{display:none}
+  .ui-grid,.ui-shop-grid{grid-template-columns:repeat(3,1fr)}
+  .ui-int,.ui-perm-grid{grid-template-columns:1fr 1fr}
+  .ui-actions{grid-template-columns:1fr 1fr}
+  .shot-row{grid-template-columns:repeat(auto-fit,minmax(146px,1fr))}
+  .prod-section{padding:48px 0}
+}
+@media (max-width:430px){
+  .ui-body{padding:11px}
+  .ui-grid{grid-template-columns:repeat(2,1fr)}
+  .ui-tiles{grid-template-columns:1fr 1fr}
+  .shot-row{grid-template-columns:1fr 1fr;gap:12px}
+  .faq-item summary{padding:15px 16px;font-size:15px}
+  .faq-item p{padding:0 16px 17px}
+}
+@media (prefers-reduced-motion:reduce){
+  .flow,.shot-row{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* =====================================================================
+   P3 PASS — accessibility, mobile navigation, readability, overflow
+   ===================================================================== */
+
+/* P3-10 contrast. --green was #138c67 = 4.22:1 on white, below the AA minimum of 4.5.
+   #128663 is a 4% darkening (4.55:1) and is visually near-identical.
+   This single line is the whole change — delete it to revert to the original brand green. */
+:root{--green:#128663}
+
+/* ---- P3-06 mobile navigation ----
+   The mobile panel is position:fixed with no height limit. With 33 links and an 18-item
+   Features menu it ran past the bottom of the viewport with no way to scroll. */
+@media (max-width:1050px){
+  .site-nav{
+    max-height:calc(100vh - 104px);
+    max-height:calc(100dvh - 104px);   /* dvh so mobile browser chrome does not clip it */
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+  body.nav-open{overflow:hidden}       /* stop the page scrolling behind the open panel */
+
+  /* P3-08: .dropdown-menu.mega is width:390px, which overflows a 375px viewport. The existing
+     mobile rule resets min-width but not width, so the page scrolled sideways at 375. */
+  .site-nav .dropdown-menu,.site-nav .dropdown-menu.mega{width:auto;max-width:100%}
+
+  /* Grouped mega menu stacks, with readable group headings */
+  .site-nav .mega-groups{display:grid;grid-template-columns:1fr;gap:2px}
+  .site-nav .mega-group-title{
+    display:block;margin:12px 0 2px;font-size:11px;letter-spacing:.7px;text-transform:uppercase;
+    color:var(--muted);font-weight:700;
+  }
+  .site-nav .dropdown-menu a{min-height:42px;display:flex;align-items:center;padding:0 12px;border-radius:8px}
+  .site-nav .mega-lead{flex-direction:column;align-items:flex-start;padding:9px 12px;min-height:0}
+  .site-nav .mega-lead small{color:var(--muted);font-size:12px}
+
+  /* P3-06: restore the CTAs that .nav-actions{display:none} removed on mobile */
+  .nav-actions-mobile{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;
+    margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+  }
+  .nav-actions-mobile .btn{width:100%;justify-content:center;min-height:44px}
+}
+.nav-actions-mobile{display:none}      /* desktop uses the header .nav-actions block */
+
+/* Mega-menu group labels. These are labels, not document structure — using <h4> here put an
+   h4 ahead of every page's <h1> and broke heading order (P3-10). */
+.mega-group-title{
+  display:block;margin:0 0 6px;font-size:11px;letter-spacing:.7px;text-transform:uppercase;
+  color:var(--muted);font-weight:700;
+}
+.mega-group a{display:block;padding:5px 0;font-size:13.5px}
+
+/* =====================================================================
+   ILLUSTRATION FIX — distorted sprite artwork
+   -----------------------------------------------------------------
+   feature-card-atlas.png was drawn as a 4x3 sprite with
+   `background-size:400% 300%`. Percentage sizing scales each axis
+   INDEPENDENTLY, so every illustration was squeezed to whatever box it
+   sat in — a 1.13:1 artwork forced into a 2.07:1 banner, which is why
+   the van and the other images looked stretched wide.
+
+   Each cell is now its own correctly-proportioned file in assets/cards/,
+   sized with `contain` / `cover` so the aspect ratio is always preserved.
+   The homepage card mapping was also wrong: the cards were reordered in
+   the P0 rewrite but the sprite offsets are keyed to :nth-child, so four
+   cards showed another feature's artwork (CRM had a megaphone, Packages
+   had the CRM card, Factory had a gift box, Staff had the analytics panel).
+   ===================================================================== */
+.feature-grid .feature-card:before,
+.feature-grid .feature-card.featured:before{
+  background-size:contain;
+  background-position:center;
+  background-color:#dbebfd;
+  background-repeat:no-repeat;
+}
+.feature-grid .feature-card:nth-child(1):before{background-image:url('assets/cards/pickup-delivery.webp')}
+.feature-grid .feature-card:nth-child(2):before{background-image:url('assets/cards/crm.webp')}
+.feature-grid .feature-card:nth-child(3):before{background-image:url('assets/cards/garment-tags.webp')}
+.feature-grid .feature-card:nth-child(4):before{background-image:url('assets/cards/packages.webp')}
+.feature-grid .feature-card:nth-child(5):before{background-image:url('assets/cards/payments.webp')}
+.feature-grid .feature-card:nth-child(6):before{background-image:url('assets/cards/plant.webp')}
+.feature-grid .feature-card:nth-child(7):before{background-image:url('assets/cards/staff.webp')}
+.feature-grid .feature-card:nth-child(8):before{background-image:url('assets/cards/expenses.webp')}
+
+/* Solution tabs — taller box, so cover fills it with only a slight crop. */
+.stage-visual{background-size:100% 100%,cover;background-position:center,center}
+.stage-single{background-image:linear-gradient(180deg,transparent 58%,rgba(4,30,75,.78)),url('assets/cards/pos-terminal.webp')}
+.stage-multi{background-image:linear-gradient(180deg,transparent 58%,rgba(4,30,75,.78)),url('assets/cards/plant.webp')}
+.stage-new{background-image:linear-gradient(180deg,transparent 58%,rgba(4,30,75,.78)),url('assets/cards/packages.webp')}
+.stage-factory{background-image:linear-gradient(180deg,transparent 58%,rgba(4,30,75,.78)),url('assets/cards/support.webp')}
+
+/* Mini solution cards — very wide, short banner, so contain avoids heavy cropping. */
+.mini-solutions article:before{background-size:contain;background-position:center;background-color:#dbebfd}
+.mini-solutions article:nth-child(1):before{background-image:url('assets/cards/plant.webp')}
+.mini-solutions article:nth-child(2):before{background-image:url('assets/cards/support.webp')}
+
+/* ---------- P2-04 FAQ page ---------- */
+.faq-jump{display:flex;flex-wrap:wrap;gap:9px;justify-content:center}
+.faq-jump a{border:1px solid var(--line);border-radius:99px;padding:9px 16px;font-size:13.5px;font-weight:600;background:#fff;transition:.18s}
+.faq-jump a:hover,.faq-jump a:focus-visible{border-color:var(--green);color:var(--green-dark)}
+.faq-item p a{color:var(--green-dark);font-weight:600;text-decoration:underline}
+
+/* ---------- P2-05 plan comparison ---------- */
+.plan-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff}
+.plan-table{width:100%;border-collapse:collapse;min-width:720px;font-size:14px}
+.plan-table th,.plan-table td{padding:13px 14px;text-align:center;border-bottom:1px solid var(--line)}
+.plan-table thead th{position:sticky;top:0;background:var(--app-navy);color:#fff;font-family:Manrope,sans-serif;font-size:13.5px;z-index:1}
+.plan-table tbody th{text-align:left;font-weight:600;color:var(--ink);background:var(--cream);white-space:nowrap}
+.plan-table tr:last-child th,.plan-table tr:last-child td{border-bottom:0}
+.plan-table td.yes{color:var(--green-dark);font-weight:700}
+.plan-table td.no{color:#b3bfbc}
+.plan-table td.ask{color:#8a6100;font-weight:600}
+.plan-table .group th{background:var(--mint);font-family:Manrope,sans-serif;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--green-dark)}
+.plan-note{margin-top:16px;font-size:13.5px;color:var(--muted);line-height:1.6}
+.plan-note b{color:#8a6100}
+
+/* ---------- P2-09 business ecosystem ---------- */
+.eco-wrap{max-width:940px;margin-inline:auto}
+.eco-svg{display:block;width:100%;height:auto}
+.eco-link{stroke:var(--line);stroke-width:2;stroke-dasharray:5 6}
+.eco-core{fill:var(--app-navy);stroke:var(--green);stroke-width:3}
+.eco-core-a{fill:#fff;font-family:Manrope,sans-serif;font-size:21px;font-weight:800;text-anchor:middle}
+.eco-core-b{fill:rgba(255,255,255,.72);font-size:12px;text-anchor:middle}
+.eco-node rect{fill:#fff;stroke:var(--line);stroke-width:1.5}
+.eco-label{fill:var(--ink);font-family:Manrope,sans-serif;font-size:14.5px;font-weight:700;text-anchor:middle}
+.eco-note{fill:var(--muted);font-size:11px;text-anchor:middle}
+.eco-list{list-style:none;margin:0;padding:0}
+@media (min-width:721px){
+  /* Diagram carries it visually; the list stays for assistive tech only. */
+  .eco-list{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+}
+@media (max-width:720px){
+  /* Radial text is unreadable on a phone — show the same relationships as a list. */
+  .eco-svg{display:none}
+  .eco-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .eco-list a{display:block;border:1px solid var(--line);border-radius:14px;padding:14px;background:#fff}
+  .eco-list b{display:block;font-family:Manrope,sans-serif;font-size:15px;margin-bottom:3px}
+  .eco-list span{font-size:13px;color:var(--muted);line-height:1.45}
+  .eco-hint{display:block}
+}
+.eco-hint{display:none;text-align:center;font-size:13px;color:var(--muted);margin-top:14px}
+
+/* ---- P3-03 screenshot readability ----
+   Phone screenshots squeezed into a 2-column grid on a 390px screen are unreadable.
+   Below 720px they become a snap-scrolling row at a size you can actually read. */
+@media (max-width:720px){
+  .shot-row{
+    display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    scroll-padding-left:20px;
+  }
+  .shot{flex:0 0 min(62vw,240px);scroll-snap-align:center}
+  .shot-row::-webkit-scrollbar{height:6px}
+  .shot-row::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+  .shot-row::after{content:"";flex:0 0 4px}
+}
+
+/* ---- P3-01 compact mobile sections ----
+   Long columns of identical full-size cards are the main mobile complaint. Below 640px
+   the capability, role and outcome cards become dense rows instead of tall blocks. */
+@media (max-width:640px){
+  .cap{display:grid;grid-template-columns:auto 1fr;gap:0 12px;padding:16px 16px;align-items:start}
+  .cap-mark{grid-row:span 2;margin:0;width:28px;height:28px}
+  .cap b{margin-bottom:4px;font-size:15.5px}
+  .cap p{font-size:14px;grid-column:2}
+  .cap-link{grid-column:2;margin-top:9px}
+  .cap-grid,.role-grid,.out-grid{gap:10px}
+  .role{display:grid;grid-template-columns:auto 1fr;gap:0 12px;padding:16px;align-items:start}
+  .role i{grid-row:span 2;margin:0;width:30px;height:30px}
+  .role b,.role p{grid-column:2}
+  .out{padding:18px 16px}
+  .ps-card{padding:20px 18px}
+  .ps-card li{font-size:14.5px}
+  .prod-head{margin-bottom:22px}
+}
+
+/* ---- P3-08 horizontal-overflow safeguards ----
+   Nothing may push the page sideways at 375 / 390 / 430. */
+.prod-section,.prod-hero,.ps-card,.cap,.role,.out,.faq-item{min-width:0}
+.ui-win,.ui-phone,.shot-frame{max-width:100%}
+.ui-row>span,.cap p,.role p,.out p,.flow-step>span:not(.flow-num){overflow-wrap:anywhere}
+img,svg,video{max-width:100%}
+@media (max-width:430px){
+  .related a{padding:9px 14px;font-size:13.5px}
+  .value-chip{padding:8px 13px;font-size:13.5px}
+  .cta-actions{flex-direction:column;align-items:stretch}
+  .cta-actions .btn{width:100%;justify-content:center}
+}
+
+/* ---- P3-04 typography consistency for the new sections ---- */
+.prod-section h2{line-height:1.15;letter-spacing:-.6px}
+.prod-section h3{font-size:17px;line-height:1.3}
+.prod-section p{line-height:1.65}
+.cap b,.role b,.out b,.flow-step b{line-height:1.3}
+
+/* ---- P3-10 touch targets ---- */
+@media (pointer:coarse){
+  .site-nav a,.site-nav button,.related a,.faq-item summary{min-height:44px}
+}

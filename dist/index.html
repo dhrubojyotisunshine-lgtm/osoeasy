@@ -3,67 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="MOOREZY laundry and dry-cleaning management software for modern businesses.">
+  <meta name="description" content="MOOREZY is laundry and dry-cleaning management software: point of sale, pickup and delivery, garment tagging, customer and driver apps, plant workflow, payments and reporting.">
   <title>MOOREZY — Laundry business, made easy</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-<link rel="icon" href="assets/moorezy-logo.png?v=20260810b" type="image/png"></head>
-<body>
+  <link rel="stylesheet" href="product.css">
+  <link rel="icon" href="assets/moorezy-logo.png?v=20260810b" type="image/png">
+</head>
+<body data-page="home">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="MOOREZY home"><img class="brand-logo" src="assets/moorezy-logo.png?v=20260810b" alt="MOOREZY"></a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
-      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-        <div class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle" aria-expanded="false">Solutions <span>⌄</span></button>
-          <div class="dropdown-menu">
-            <a href="why-moorezy.html"><b>For every business</b><small>Explore the complete platform</small></a>
-            <a href="single-store.html">Single Store</a><a href="multi-store.html">Multi Store</a>
-            <a href="new-business.html">New Business</a><a href="b2b.html">B2B Business</a>
-          </div>
-        </div>
-        <div class="nav-item dropdown">
-          <button class="nav-link dropdown-toggle" aria-expanded="false">Features <span>⌄</span></button>
-          <div class="dropdown-menu mega feature-menu">
-            <a href="features.html"><b>Overview</b><small>Explore the complete platform</small></a>
-            <a href="features.html#pos">Point of Sale</a><a href="features.html#pickup-delivery">Pickup & Delivery</a>
-            <a href="features.html#staff-management">Staff Management</a><a href="features.html#attendance">Attendance Management</a>
-            <a href="features.html#expense-management">Expense Management</a><a href="features.html#store-management">Store Management</a>
-            <a href="features.html#multi-store-support">Multi-Store Support</a><a href="features.html#customer-management">Customer Management</a>
-            <a href="features.html#reporting-analytics">Reporting & Analytics</a><a href="features.html#online-payments">Online Payments</a>
-            <a href="features.html#packages-plans">Packages & Plans</a><a href="features.html#printing-tags">Printing & Tags</a>
-            <a href="features.html#notifications-marketing">Notifications & Marketing</a><a href="features.html#integrations-support">Integrations & 24/7 Support</a>
-          </div>
-        </div>
-        <a class="nav-link" href="testimonials.html">Testimonials</a><a class="nav-link" href="pricing.html">Pricing</a>
-        <a class="nav-link" href="blogs.html">Blogs</a><a class="nav-link" href="contact.html">Contact</a>
-      </nav>
-      <div class="nav-actions"><a class="btn btn-ghost" href="login.html">Log in</a><a class="btn btn-primary" href="signup.html">Start free</a></div>
-    </div>
-  </header>
+  <site-header></site-header>
 
   <main id="main">
     <section class="hero">
       <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
+          <!-- UNVERIFIED (P0-01/P2-10) — original eyebrow, restore only with an audited customer count:
           <div class="eyebrow"><span></span> Trusted by 5,000+ laundry businesses</div>
+          -->
+          <div class="eyebrow"><span></span> Built for laundry &amp; dry-cleaning businesses</div>
           <h1>Your laundry business, <em>beautifully managed.</em></h1>
-          <p>One smart platform to manage orders, customers, pickups, payments and every garment—from your first store to your hundredth.</p>
-          <div class="hero-actions"><a class="btn btn-primary btn-large" href="signup.html">Start 14-day free trial <span>→</span></a><a class="watch-link" href="#product"><span class="play">▶</span> See how it works</a></div>
-          <div class="hero-note"><span>✓ No credit card</span><span>✓ Setup in minutes</span><span>✓ 24/7 support</span></div>
+          <p>One platform to manage orders, customers, pickups, garments, payments and every store — from your first counter to your whole network.</p>
+          <div class="hero-actions"><a class="btn btn-primary btn-large" href="signup.html">Start 14-day free trial <span>→</span></a><a class="watch-link" href="how-it-works.html"><span class="play">▶</span> See how it works</a></div>
+          <div class="hero-note"><span>✓ No credit card</span><span>✓ Setup in minutes</span><span>✓ Free trial</span></div>
         </div>
         <div class="hero-visual reveal">
-          <div class="hero-image-shell"><img src="assets/laundry-platform-hero.png" alt="Laundry management software across desktop, tablet and phone"></div>
-          <div class="floating-card order-card"><span class="float-icon">✓</span><div><b>Order ready</b><small>#OS-1048 · 8 garments</small></div></div>
+          <div class="hero-image-shell"><img src="assets/laundry-platform-hero.png" alt="MOOREZY laundry management software shown on desktop, tablet and phone" width="720" height="540"></div>
+          <div class="floating-card order-card"><span class="float-icon">✓</span><div><b>Order ready</b><small>#OSO-1048 · 8 garments</small></div></div>
+          <!-- UNVERIFIED (P2-10) — original growth card:
           <div class="floating-card growth-card"><small>Monthly growth</small><b>+28.4%</b><span>↗</span></div>
+          -->
+          <div class="floating-card growth-card"><small>Garments tagged</small><b>8 / 8</b><span>↗</span></div>
         </div>
       </div>
       <div class="container trust-strip">
-        <div class="trust-heading"><span></span><p>Powering ambitious laundry teams across the world</p><span></span></div>
+        <div class="trust-heading"><span></span><p>Everything a laundry operation needs, in one connected system</p><span></span></div>
+        <!-- UNVERIFIED (P2-03/P2-10) — original partner row. These five brands could not be
+             confirmed as real customers. Restore only the ones with written permission, and
+             restore the "Powering ambitious laundry teams across the world" heading with them:
         <div class="brand-row">
           <div class="partner-brand pearl"><i>PW</i><span><b>PEARL WASH</b><small>Premium garment care</small></span></div>
           <div class="partner-brand lab"><i>LL</i><span><b>LAUNDRY LAB</b><small>Clean, tested, perfected</small></span></div>
@@ -71,58 +51,132 @@
           <div class="partner-brand fold"><i>FF</i><span><b>FRESH FOLD</b><small>Care in every fold</small></span></div>
           <div class="partner-brand works"><i>W</i><span><b>WASHWORKS</b><small>Professional laundry</small></span></div>
         </div>
+        -->
+        <div class="value-row">
+          <div class="value-chip"><i>▦</i><span>Point of sale</span></div>
+          <div class="value-chip"><i>⌖</i><span>Pickup &amp; delivery</span></div>
+          <div class="value-chip"><i>◇</i><span>Garment tagging</span></div>
+          <div class="value-chip"><i>⌂</i><span>Plant workflow</span></div>
+          <div class="value-chip"><i>$</i><span>Payments</span></div>
+          <div class="value-chip"><i>↗</i><span>Reporting</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- P0-04: the complete laundry workflow -->
+    <section class="prod-section tint" id="workflow">
+      <div class="container">
+        <div class="prod-head centered reveal">
+          <span class="kicker">THE COMPLETE WORKFLOW</span>
+          <h2>One order, from booking to feedback</h2>
+          <p>Every stage is recorded in the same system — so the counter, the driver, the plant and the customer are never working from different information.</p>
+        </div>
+        <div id="home-flow"></div>
+        <p class="shot-note"><a class="related-inline" href="how-it-works.html">See the full workflow in detail →</a></p>
       </div>
     </section>
 
     <section class="section devices" id="product">
       <div class="container two-col">
-        <div class="section-copy reveal"><span class="kicker">WORK FROM ANYWHERE</span><h2>Every device. Every role. One connected business.</h2><p>Whether your team is behind the counter, on the road or checking numbers from home, MOOREZY keeps everyone perfectly in sync.</p>
-          <ul class="check-list"><li><i>✓</i><div><b>Store teams</b><span>Use desktop, tablet or mobile at the counter.</span></div></li><li><i>✓</i><div><b>Pickup drivers</b><span>Navigate routes and update orders in real time.</span></div></li><li><i>✓</i><div><b>Owners & customers</b><span>Dedicated apps and a powerful web portal.</span></div></li></ul>
+        <div class="section-copy reveal"><span class="kicker">WORK FROM ANYWHERE</span><h2>Every device. Every role. One connected business.</h2><p>Whether your team is behind the counter, on the road or checking numbers from home, MOOREZY keeps everyone in sync.</p>
+          <ul class="check-list"><li><i>✓</i><div><b>Store teams</b><span>Use desktop, tablet or mobile at the counter.</span></div></li><li><i>✓</i><div><b>Pickup drivers</b><span>Navigate routes and update orders in real time.</span></div></li><li><i>✓</i><div><b>Owners &amp; customers</b><span>Dedicated apps and a web portal.</span></div></li></ul>
+          <div class="related" style="margin-top:22px"><a href="pos.html">Point of Sale →</a><a href="driver-app.html">Driver App →</a><a href="customer-app.html">Customer App →</a></div>
         </div>
         <div class="device-art reveal"><div class="laptop"><div class="laptop-screen"><div class="mini-side"></div><div class="mini-main"><span></span><div class="mini-cards"><i></i><i></i><i></i></div><div class="mini-chart"></div></div></div><div class="laptop-base"></div></div><div class="phone"><div class="phone-notch"></div><div class="phone-map">⌖<span></span></div></div><div class="device-badge">Live sync <span>●</span></div></div>
+      </div>
+    </section>
+
+    <!-- P0-03: real product screens -->
+    <section class="prod-section" id="screens">
+      <div class="container">
+        <div class="prod-head centered reveal"><span class="kicker">IN THE PRODUCT</span><h2>What your customers actually see</h2><p>The MOOREZY customer experience — booking, scheduling, payment and live order tracking.</p></div>
+        <div class="shot-row">
+          <figure class="shot"><div class="shot-frame"><img src="assets/screens/home.webp" alt="MOOREZY app screen — home and services" loading="lazy" decoding="async" width="560" height="1212"></div><figcaption>Browse services</figcaption></figure>
+          <figure class="shot"><div class="shot-frame"><img src="assets/screens/product-select.webp" alt="MOOREZY app screen — garment and service selection" loading="lazy" decoding="async" width="560" height="1212"></div><figcaption>Choose garments</figcaption></figure>
+          <figure class="shot"><div class="shot-frame"><img src="assets/screens/pickup-schedule.webp" alt="MOOREZY app screen — pickup date and time selection" loading="lazy" decoding="async" width="560" height="1212"></div><figcaption>Pick a slot</figcaption></figure>
+          <figure class="shot"><div class="shot-frame"><img src="assets/screens/track-order.webp" alt="MOOREZY app screen — live order tracking" loading="lazy" decoding="async" width="560" height="1212"></div><figcaption>Track the order</figcaption></figure>
+          <figure class="shot"><div class="shot-frame"><img src="assets/screens/invoice.webp" alt="MOOREZY app screen — itemised invoice" loading="lazy" decoding="async" width="560" height="1212"></div><figcaption>Itemised invoice</figcaption></figure>
+        </div>
       </div>
     </section>
 
     <section class="section solutions" id="solutions">
       <div class="container"><div class="section-heading centered reveal"><span class="kicker">BUILT TO GROW WITH YOU</span><h2>The right fit at every stage</h2><p>Start simple, scale without limits. One platform adapts to every shape and size of laundry business.</p></div>
         <div class="solution-tabs" role="tablist" aria-label="Business type">
-          <button class="tab active" role="tab" aria-selected="true" data-tab="single-store">Single Store</button><button class="tab" role="tab" aria-selected="false" data-tab="multi-store">Multi Store</button><button class="tab" role="tab" aria-selected="false" data-tab="new-business">New Business</button><button class="tab" role="tab" aria-selected="false" data-tab="factory">Factory / Plant</button>
+          <button class="tab active" role="tab" aria-selected="true" id="tab-single" aria-controls="single-store" data-tab="single-store">Single Store</button><button class="tab" role="tab" aria-selected="false" id="tab-multi" aria-controls="multi-store" data-tab="multi-store">Multi Store</button><button class="tab" role="tab" aria-selected="false" id="tab-new" aria-controls="new-business" data-tab="new-business">New Business</button><button class="tab" role="tab" aria-selected="false" id="tab-factory" aria-controls="factory" data-tab="factory">Factory / Plant</button>
         </div>
-        <div class="tab-panel reveal" id="single-store"><div class="panel-copy"><span class="number">01</span><h3>Run your entire store without the chaos</h3><p>Automate customer acquisition, order capture, payments, garment tagging, inventory and communication from one calm workspace.</p><a href="#features">Explore single store <span>→</span></a></div><div class="stage-visual stage-single" role="img" aria-label="Point of sale workspace for a single laundry store"><span>Single-store control</span><b>One simple workspace</b></div></div>
-        <div class="tab-panel" id="multi-store" hidden><div class="panel-copy"><span class="number">02</span><h3>Control every outlet from one place</h3><p>Manage stores, plants, drivers, territories, centralized inventory and the complete garment flow in real time.</p><a href="#features">Explore multi store <span>→</span></a></div><div class="stage-visual stage-multi" role="img" aria-label="Connected network of multiple laundry stores"><span>12 stores connected</span><b>One live network</b></div></div>
-        <div class="tab-panel" id="new-business" hidden><div class="panel-copy"><span class="number">03</span><h3>Launch quickly with proven processes</h3><p>Go live in days with guided setup, ready workflows and the tools needed to reach sustainable growth sooner.</p><a href="#pricing">Start your business <span>→</span></a></div><div class="stage-visual stage-new" role="img" aria-label="Growth plan for a new laundry business"><span>Guided launch</span><b>Ready from day one</b></div></div>
-        <div class="tab-panel" id="factory" hidden><div class="panel-copy"><span class="number">04</span><h3>Make plant operations flow</h3><p>Assemble garments from multiple stores, process them together, then segregate and dispatch accurately.</p><a href="#features">Explore plant tools <span>→</span></a></div><div class="stage-visual stage-factory" role="img" aria-label="Integrated workflow for a laundry factory and processing plant"><span>Plant operations</span><b>Track every garment</b></div></div>
-        <div class="mini-solutions"><article><span>✦</span><h3>Franchise</h3><p>Expand into new markets with consistent processes and complete visibility.</p></article><article><span>◎</span><h3>Aggregator</h3><p>Build a powerful network without maintaining a large development team.</p></article></div>
+        <div class="tab-panel reveal" id="single-store" role="tabpanel" aria-labelledby="tab-single"><div class="panel-copy"><span class="number">01</span><h3>Run your entire store without the chaos</h3><p>Order capture, payments, garment tagging, inventory, customers and communication in one calm workspace.</p><a href="single-store.html">Explore single store <span>→</span></a></div><div class="stage-visual stage-single" role="img" aria-label="Point of sale workspace for a single laundry store"><span>Single-store control</span><b>One simple workspace</b></div></div>
+        <div class="tab-panel" id="multi-store" role="tabpanel" aria-labelledby="tab-multi" hidden><div class="panel-copy"><span class="number">02</span><h3>Control every outlet from one place</h3><p>Manage stores, plants, drivers, territories, shared inventory and the complete garment flow in real time.</p><a href="multi-store.html">Explore multi store <span>→</span></a></div><div class="stage-visual stage-multi" role="img" aria-label="Connected network of multiple laundry stores"><span>Connected network</span><b>One live view</b></div></div>
+        <div class="tab-panel" id="new-business" role="tabpanel" aria-labelledby="tab-new" hidden><div class="panel-copy"><span class="number">03</span><h3>Launch quickly with proven processes</h3><p>Go live with guided setup, ready workflows and the tools needed to grow sustainably.</p><a href="new-business.html">Start your business <span>→</span></a></div><div class="stage-visual stage-new" role="img" aria-label="Growth plan for a new laundry business"><span>Guided launch</span><b>Ready from day one</b></div></div>
+        <div class="tab-panel" id="factory" role="tabpanel" aria-labelledby="tab-factory" hidden><div class="panel-copy"><span class="number">04</span><h3>Make plant operations flow</h3><p>Assemble garments from multiple stores, process them together, then segregate and dispatch accurately.</p><a href="factory-plant.html">Explore plant tools <span>→</span></a></div><div class="stage-visual stage-factory" role="img" aria-label="Integrated workflow for a laundry factory and processing plant"><span>Plant operations</span><b>Track every garment</b></div></div>
+        <div class="mini-solutions"><article><span>✦</span><h3>B2B &amp; corporate</h3><p>Contracts, consolidated invoicing and account-level pricing for high-volume clients.</p><a class="mini-link" href="b2b.html">Explore B2B →</a></article><article><span>◎</span><h3>Why MOOREZY</h3><p>How the platform is put together, and what it changes for a laundry business.</p><a class="mini-link" href="why-moorezy.html">Why MOOREZY →</a></article></div>
       </div>
     </section>
 
-    <section class="section features" id="features"><div class="container"><div class="section-heading reveal"><span class="kicker">360° BUSINESS CONTROL</span><h2>Everything you need.<br>Nothing you don't.</h2><p>Purpose-built tools that remove busywork and put growth on autopilot.</p></div>
+    <section class="section features" id="features"><div class="container"><div class="section-heading reveal"><span class="kicker">360° BUSINESS CONTROL</span><h2>Everything you need.<br>Nothing you don't.</h2><p>Purpose-built tools that remove busywork. Every card links to the full detail.</p></div>
       <div class="feature-grid">
-        <article class="feature-card featured reveal" id="pickup"><div class="feature-icon">⌖</div><h3>Pickup & Delivery</h3><p>Plan efficient routes, track drivers live and give customers a seamless doorstep experience.</p><div class="route-visual"><span class="pin a">●</span><span class="pin b">●</span><span class="pin c">●</span><svg viewBox="0 0 300 120"><path d="M22 91 C74 20, 114 105, 166 50 S252 13,278 43"/></svg><div class="van">▰</div></div></article>
-        <article class="feature-card reveal" id="crm"><div class="feature-icon purple">♡</div><h3>CRM & Campaigns</h3><p>Turn first-time buyers into loyal customers with timely, personalized communication.</p><div class="avatar-stack"><i>A</i><i>M</i><i>R</i><i>+2k</i></div></article>
-        <article class="feature-card reveal" id="tags"><div class="feature-icon orange">◇</div><h3>Garment Tags</h3><p>Know exactly where every item is, through every stage of processing.</p><div class="tag-chip"><span>OSO-24081</span><b>Ready</b></div></article>
-        <article class="feature-card reveal" id="loyalty"><div class="feature-icon pink">★</div><h3>Loyalty & Referrals</h3><p>Reward regulars and turn happy customers into your strongest growth channel.</p><div class="progress"><span></span></div><small>780 / 1,000 points</small></article>
-        <article class="feature-card reveal" id="payments"><div class="feature-icon blue">$</div><h3>Digital Payments</h3><p>Collect faster through payment links, apps, cards and your own website.</p><div class="payment-card"><small>Revenue</small><b>₹84,250</b><span>+18.6%</span></div></article>
-        <article class="feature-card reveal" id="plans"><div class="feature-icon green">↻</div><h3>Prepaid Plans</h3><p>Create predictable revenue with flexible subscriptions your customers love.</p><div class="plan-pill">Monthly Care <b>ACTIVE</b></div></article>
-        <article class="feature-card reveal" id="inventory"><div class="feature-icon teal">▦</div><h3>Inventory</h3><p>Track chemicals, machines and accessories while catching waste early.</p><div class="stock-bars"><i></i><i></i><i></i><i></i><i></i></div></article>
-        <article class="feature-card reveal" id="expense"><div class="feature-icon red">↘</div><h3>Expense Management</h3><p>Capture, approve and categorize every expense for tighter control.</p><div class="expense-row"><span>Operating costs</span><b>−8.2%</b></div></article>
+        <a class="feature-card featured reveal" href="pickup-delivery.html"><div class="feature-icon">⌖</div><h3>Pickup &amp; Delivery</h3><p>Plan routes, track drivers and give customers a doorstep experience they can follow.</p><div class="route-visual"><span class="pin a">●</span><span class="pin b">●</span><span class="pin c">●</span><svg viewBox="0 0 300 120" aria-hidden="true"><path d="M22 91 C74 20, 114 105, 166 50 S252 13,278 43"/></svg><div class="van">▰</div></div><strong class="cap-link">Explore →</strong></a>
+        <a class="feature-card reveal" href="customer-management.html"><div class="feature-icon purple">♡</div><h3>CRM &amp; Campaigns</h3><p>Turn first-time buyers into regulars with timely, relevant communication.</p><div class="avatar-stack"><i>A</i><i>M</i><i>R</i><i>+</i></div><strong class="cap-link">Explore →</strong></a>
+        <a class="feature-card reveal" href="printing-tags.html"><div class="feature-icon orange">◇</div><h3>Garment Tags</h3><p>Know exactly where every item is, through every stage of processing.</p><div class="tag-chip"><span>OSO-24081</span><b>Ready</b></div><strong class="cap-link">Explore →</strong></a>
+        <a class="feature-card reveal" href="packages-plans.html"><div class="feature-icon pink">★</div><h3>Packages &amp; Plans</h3><p>Prepaid plans that bring revenue forward and keep customers coming back.</p><div class="progress"><span></span></div><small>Balance tracked automatically</small><strong class="cap-link">Explore →</strong></a>
+        <a class="feature-card reveal" href="online-payments.html"><div class="feature-icon blue">$</div><h3>Online Payments</h3><p>Collect faster through payment links, cards, UPI and your own storefront.</p><div class="payment-card"><small>Payment link</small><b>Sent</b><span>Awaiting</span></div><strong class="cap-link">Explore →</strong></a>
+        <a class="feature-card reveal" href="factory-plant.html"><div class="feature-icon green">↻</div><h3>Factory &amp; Plant</h3><p>Move garments from store to plant and back without losing a single item.</p><div class="plan-pill">Lot PL-3391 <b>SORTING</b></div><strong class="cap-link">Explore →</strong></a>
+        <a class="feature-card reveal" href="staff-management.html"><div class="feature-icon teal">♙</div><h3>Staff &amp; Attendance</h3><p>Individual accounts, role permissions, attendance and accountability.</p><div class="stock-bars"><i></i><i></i><i></i><i></i><i></i></div><strong class="cap-link">Explore →</strong></a>
+        <a class="feature-card reveal" href="expense-management.html"><div class="feature-icon red">↘</div><h3>Expense Management</h3><p>Capture, approve and categorise every cost so margin is measured, not guessed.</p><div class="expense-row"><span>Operating costs</span><b>Tracked</b></div><strong class="cap-link">Explore →</strong></a>
       </div>
+      <div class="center-cta"><a class="btn btn-ghost btn-large" href="features.html">See all features →</a></div>
     </div></section>
 
-    <section class="stats" id="analytics"><div class="container stats-grid"><div><b class="counter" data-target="53150" data-suffix="+">0</b><span>Daily staff users</span></div><div><b class="counter" data-target="3050" data-suffix="+">0</b><span>Outlets worldwide</span></div><div><b class="counter" data-target="20" data-suffix="+">0</b><span>Countries</span></div><div><b class="counter" data-target="100" data-suffix="M+">0</b><span>Garments processed</span></div></div></section>
+    <!-- ============================================================================
+         UNVERIFIED (P0-01/P2-03) — original animated counter strip.
+         These four targets were hardcoded, not real data, and rendered as literal "0"
+         until the scroll animation fired (which is what the review saw).
+         To restore: uncomment, replace every data-target with an audited figure, and
+         re-add the counter animation to app.js (removed — see CHANGES.md).
 
-    <section class="section testimonial" id="testimonial"><div class="container testimonial-grid"><div class="quote-mark">“</div><div class="quote reveal"><span class="kicker light">CUSTOMER STORY</span><blockquote>“MOOREZY streamlined everything in just one month and brought our multi-store business back under control.”</blockquote><p>We used to lose money through missing garments, expenses and compensation every month. Today, every moving part is visible.</p><div class="person"><div class="person-avatar">DG</div><div><b>Deepak G.</b><span>Owner, Pearlwash · Hyderabad</span></div></div><div class="quote-controls"><button aria-label="Previous testimonial">←</button><span>01 / 03</span><button aria-label="Next testimonial">→</button></div></div><div class="story-card reveal"><div class="story-top"><span>PEARL<br>WASH</span><i>★★★★★</i></div><div class="story-metric"><small>Garment loss</small><b>−94%</b></div><div class="story-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><p>Results after 90 days with MOOREZY</p></div></div></section>
+    <section class="stats" id="analytics"><div class="container stats-grid">
+      <div><b class="counter" data-target="53150" data-suffix="+">0</b><span>Daily staff users</span></div>
+      <div><b class="counter" data-target="3050" data-suffix="+">0</b><span>Outlets worldwide</span></div>
+      <div><b class="counter" data-target="20" data-suffix="+">0</b><span>Countries</span></div>
+      <div><b class="counter" data-target="100" data-suffix="M+">0</b><span>Garments processed</span></div>
+    </div></section>
+         ============================================================================ -->
+
+    <!-- ============================================================================
+         UNVERIFIED (P2-01/P2-02/P2-10) — original homepage customer story.
+         The quote, the person and the "94% garment loss reduction" metric could not be
+         confirmed. Restore only with a real, written-approved customer story.
+         The rotating-quote script was removed from app.js with it (see CHANGES.md).
+
+    <section class="section testimonial" id="testimonial"><div class="container testimonial-grid">
+      <div class="quote-mark">"</div>
+      <div class="quote reveal"><span class="kicker light">CUSTOMER STORY</span>
+        <blockquote>"MOOREZY streamlined everything in just one month and brought our multi-store business back under control."</blockquote>
+        <p>We used to lose money through missing garments, expenses and compensation every month. Today, every moving part is visible.</p>
+        <div class="person"><div class="person-avatar">DG</div><div><b>Deepak G.</b><span>Owner, Pearlwash, Hyderabad</span></div></div>
+        <div class="quote-controls"><button aria-label="Previous testimonial">left</button><span>01 / 03</span><button aria-label="Next testimonial">right</button></div>
+      </div>
+      <div class="story-card reveal"><div class="story-top"><span>PEARL WASH</span><i>5 stars</i></div>
+        <div class="story-metric"><small>Garment loss</small><b>-94%</b></div>
+        <div class="story-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p>Results after 90 days with MOOREZY</p>
+      </div>
+    </div></section>
+         ============================================================================ -->
 
     <section class="section commerce" id="resources"><div class="container"><div class="section-heading centered reveal"><span class="kicker">READY FOR WHAT'S NEXT</span><h2>Bring your business into the eCommerce era</h2><p>Modern tools that make your service easier to buy, operate and grow.</p></div><div class="commerce-grid">
-      <article class="commerce-card reveal"><div class="commerce-visual web"><div class="browser"><span></span><div class="browser-hero">Fresh clothes.<br><b>Zero hassle.</b><button>Schedule pickup</button></div></div></div><div><span class="kicker">YOUR ONLINE STORE</span><h3>Sell your services 24/7</h3><p>Give customers a beautiful branded storefront for bookings, payments and order tracking.</p><a href="#pricing">Explore eCommerce <span>→</span></a></div></article>
-      <article class="commerce-card reverse reveal"><div class="commerce-visual pos"><div class="pos-screen"><div class="pos-head"></div><div class="pos-products"><i></i><i></i><i></i><i></i><i></i><i></i></div><button>Complete order</button></div></div><div><span class="kicker">SMART POINT OF SALE</span><h3>Fast at the counter. Powerful behind it.</h3><p>Take orders in seconds while inventory, accounting and customer records update automatically.</p><a href="#pricing">Explore POS <span>→</span></a></div></article>
+      <article class="commerce-card reveal"><div class="commerce-visual web"><div class="browser"><span></span><div class="browser-hero">Fresh clothes.<br><b>Zero hassle.</b><button>Schedule pickup</button></div></div></div><div><span class="kicker">YOUR ONLINE STORE</span><h3>Sell your services 24/7</h3><p>Give customers a branded storefront for bookings, payments and order tracking.</p><a href="customer-app.html">Explore the customer experience <span>→</span></a></div></article>
+      <article class="commerce-card reverse reveal"><div class="commerce-visual pos"><div class="pos-screen"><div class="pos-head"></div><div class="pos-products"><i></i><i></i><i></i><i></i><i></i><i></i></div><button>Complete order</button></div></div><div><span class="kicker">SMART POINT OF SALE</span><h3>Fast at the counter. Powerful behind it.</h3><p>Take orders in seconds while customer records, tags and reporting update automatically.</p><a href="pos.html">Explore POS <span>→</span></a></div></article>
     </div></div></section>
 
-    <section class="final-cta" id="pricing"><div class="cta-orb"></div><div class="container reveal"><span class="kicker light">START TODAY</span><h2>Make laundry management<br>feel MOOREZY.</h2><p>Join thousands of growing laundry businesses. Explore every feature free for 14 days.</p><div><a class="btn btn-white btn-large" href="signup.html">Start free trial <span>→</span></a><a class="btn btn-outline-light btn-large" href="contact.html">Talk to sales</a></div><small>No credit card required · Cancel anytime</small></div></section>
+    <section class="final-cta" id="pricing"><div class="cta-orb"></div><div class="container reveal"><span class="kicker light">START TODAY</span><h2>Make laundry management<br>feel MOOREZY.</h2><!-- UNVERIFIED (P2-10) — original line: "Join thousands of growing laundry businesses. Explore every feature free for 14 days." --><p>Explore every feature free for 14 days. No credit card required.</p><div class="cta-actions"><a class="btn btn-white btn-large" href="signup.html">Start free trial <span>→</span></a><a class="btn btn-outline-light btn-large" href="contact.html">Talk to sales</a></div><small>No credit card required · Cancel anytime</small></div></section>
   </main>
 
-  <footer id="contact"><div class="container footer-grid"><div class="footer-brand"><a class="brand brand-light" href="#top"><img class="brand-logo" src="assets/moorezy-logo.png?v=20260810b" alt="MOOREZY"></a><p>The operating system for modern laundry and dry-cleaning businesses.</p><div class="socials"><a href="https://www.linkedin.com" aria-label="LinkedIn">in</a><a href="https://www.facebook.com" aria-label="Facebook">f</a><a href="https://www.instagram.com" aria-label="Instagram">◎</a></div></div><div><h3>Solutions</h3><a href="#single-store">Single Store</a><a href="#multi-store">Multi Store</a><a href="#new-business">New Business</a><a href="#factory">Factory / Plant</a></div><div><h3>Product</h3><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#testimonial">Testimonials</a><a href="#resources">Resources</a></div><div><h3>Company</h3><a href="#top">About</a><a href="mailto:hello@moorezy.com">Contact</a><a href="#resources">Blog</a><a href="https://app.fabklean.com/laundry/login">Login</a></div><div><h3>Stay in the loop</h3><p>Fresh product updates and business tips.</p><form class="newsletter" id="newsletter"><label class="sr-only" for="email">Email address</label><input id="email" type="email" placeholder="Email address" required><button aria-label="Subscribe">→</button></form><span class="form-message" role="status"></span></div></div><div class="container footer-bottom"><span>© 2026 MOOREZY. All rights reserved.</span><div><a href="privacy-policy.html">Privacy</a><a href="terms-and-conditions.html">Terms</a></div></div></footer>
+  <site-footer></site-footer>
   <a class="back-top" href="#top" aria-label="Back to top">↑</a>
+  <script src="components.js"></script>
+  <script src="ui-mockups.js"></script>
+  <script src="overview.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

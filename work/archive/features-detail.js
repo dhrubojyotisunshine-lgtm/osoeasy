@@ -1,3 +1,20 @@
+/* ARCHIVED — superseded by overview.js + feature-page.js (see CHANGES.md).
+   NOT loaded by any page and NOT copied into dist (work/ is excluded from the build).
+   Kept because it contains the original per-feature stat pairs, all UNVERIFIED (P2-10):
+     Point of Sale ............ 'Faster checkout'    '3x'
+     Pickup & Delivery ........ 'More service area'  '+40%'
+     Staff & Attendance ....... 'Clear accountability' '24/7'
+     Expense Management ....... 'Cost visibility'    '100%'
+     Store & Multi-Store ...... 'One command center' 'infinity'
+     Customer Management ...... 'Stronger retention' '+28%'
+     Reporting & Analytics .... 'Live insight'       'Real time'
+     Online Payments .......... 'Better cash flow'   '+18%'
+     Packages & Prepaid Plans . 'Recurring revenue'  'Monthly'
+     Printing & Garment Tags .. 'Track every item'   '1:1'
+     Notifications & Marketing  'Repeat business'    '+30%'
+     Integrations & Support ... 'Help available'     '24/7'
+   Restore any of these only with a verified figure. */
+
 const featureDetails=[
   ['pos',[],'▦','Point of Sale','Take accurate orders in seconds with a counter experience designed specifically for laundry and dry-cleaning teams.',['Custom services, products, taxes and price lists','Discounts, coupons, express delivery and order notes','Customer history, credits and outstanding balances'],'Faster checkout','3×'],
   ['pickup-delivery',[],'⌖','Pickup & Delivery','Run doorstep service with customer booking, driver workflows and transparent order tracking.',['Pickup slots, territories and recurring schedules','Route planning and driver mobile workflow','Live status, proof of delivery and notifications'],'More service area','+40%'],
