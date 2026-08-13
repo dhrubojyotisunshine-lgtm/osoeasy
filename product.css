@@ -546,4 +546,28 @@ img,svg,video{max-width:100%}
 /* ---- P3-10 touch targets ---- */
 @media (pointer:coarse){
   .site-nav a,.site-nav button,.related a,.faq-item summary{min-height:44px}
+  /* Buttons were 38px on mobile — under the 44px touch-target minimum. */
+  .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+}
+
+/* ---------- wide brand lockup (footer + auth), 13 Aug 2026 ----------
+   This mark is 2.48:1 and ships on its own white background, unlike the 3:2 header
+   mark. styles.css sizes .brand-logo for 3:2 and makes the footer copy transparent
+   with a blue glow, which would letterbox this one inside a tall box and tint it.
+   These rules size it by width, let the height follow, and drop the glow. */
+.brand-logo-wide{
+  width:190px;height:auto;
+  object-fit:contain;background:transparent;
+  filter:none;mix-blend-mode:normal;
+  border-radius:8px;
+}
+.footer-brand .brand-light{width:max-content;height:auto;padding:0;background:transparent;border-radius:8px;overflow:visible}
+.footer-brand .brand-light .brand-logo-wide{width:190px;height:auto}
+.auth-showcase .brand-logo-wide{width:186px;height:auto}
+@media (max-width:1050px){
+  .footer-brand .brand-light .brand-logo-wide{width:172px}
+  .auth-showcase .brand-logo-wide{width:168px}
+}
+@media (max-width:430px){
+  .footer-brand .brand-light .brand-logo-wide{width:158px}
 }

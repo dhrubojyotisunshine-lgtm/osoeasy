@@ -1,0 +1,290 @@
+/* ==========================================================================
+   MOOREZY MOTION LANGUAGE
+   Premium · smooth · modern · confident · product-focused · subtle · fast.
+
+   One shared system for all 40 pages. Elements opt in through a `data-m`
+   attribute, which motion.js assigns automatically to known components —
+   so there are no per-page implementations and no markup churn.
+
+   Rules this file holds itself to:
+     - transform / opacity / clip-path only (GPU friendly, no layout shift)
+     - 220-700ms for UI, longer only for ambient background drift
+     - nothing animates while off-screen
+     - prefers-reduced-motion removes all of it and shows content immediately
+   ========================================================================== */
+
+:root{
+  /* durations */
+  --m-fast:220ms;
+  --m-base:420ms;
+  --m-slow:620ms;
+  --m-amb:26s;             /* ambient background drift only */
+  /* easings — settle confidently, never bounce */
+  --m-out:cubic-bezier(.16,1,.3,1);        /* expo-out: premium settle */
+  --m-soft:cubic-bezier(.22,.61,.36,1);    /* quad-out: UI default */
+  --m-inout:cubic-bezier(.65,0,.35,1);
+  --m-step:64ms;           /* stagger interval */
+}
+
+/* --------------------------------------------------------------------------
+   1. Reveal primitives
+   `data-m` sets the resting (hidden) state; `.m-in` is the settled state.
+   Stagger comes from --m-i, set by motion.js per group.
+   -------------------------------------------------------------------------- */
+[data-m]{
+  opacity:0;
+  transition:opacity var(--m-slow) var(--m-out),
+             transform var(--m-slow) var(--m-out),
+             clip-path var(--m-slow) var(--m-out);
+  transition-delay:calc(var(--m-i,0) * var(--m-step));
+}
+[data-m="fade"]  {transform:none}
+[data-m="up"]    {transform:translate3d(0,18px,0)}
+[data-m="rise"]  {transform:translate3d(0,26px,0) scale(.985)}
+[data-m="scale"] {transform:scale(.965)}
+[data-m="left"]  {transform:translate3d(-22px,0,0)}
+[data-m="right"] {transform:translate3d(22px,0,0)}
+/* Mask/wipe — content stays opaque and is revealed by the clip, which reads
+   as a deliberate uncovering rather than a fade. Used sparingly. */
+[data-m="mask"]  {opacity:1;clip-path:inset(0 0 100% 0);transform:translate3d(0,10px,0)}
+
+/* settled state — comes after the variants so it wins without !important */
+[data-m].m-in{
+  opacity:1;
+  transform:none;
+  clip-path:inset(0 0 0 0);
+}
+/* will-change is applied only while a reveal is pending, then dropped */
+[data-m].m-armed{will-change:transform,opacity}
+
+/* Legacy .reveal keeps working, re-tuned to the same easing so old and new
+   markup feel identical. */
+.reveal{transition:opacity var(--m-slow) var(--m-out),transform var(--m-slow) var(--m-out)}
+
+/* --------------------------------------------------------------------------
+   2. Navigation
+   -------------------------------------------------------------------------- */
+.dropdown-menu{
+  transition:opacity var(--m-fast) var(--m-soft),
+             transform var(--m-fast) var(--m-soft),
+             visibility var(--m-fast) linear;
+  transform-origin:top center;
+}
+@media (min-width:1051px){
+  .nav-item.dropdown>.dropdown-menu{transform:translate3d(0,-6px,0) scale(.99)}
+  .nav-item.dropdown:hover>.dropdown-menu,
+  .nav-item.dropdown.open>.dropdown-menu,
+  .nav-item.dropdown:focus-within>.dropdown-menu{transform:none}
+  /* menu items arrive just behind the panel */
+  .dropdown-menu>a,.mega-group>a{transition:color var(--m-fast) var(--m-soft),
+                                            background-color var(--m-fast) var(--m-soft),
+                                            transform var(--m-fast) var(--m-soft)}
+  .dropdown-menu a:hover,.mega-group a:hover{transform:translate3d(3px,0,0)}
+}
+/* Mobile panel + dropdowns toggle `display`, which cannot transition, so the
+   open state plays a short entrance instead. */
+@media (max-width:1050px){
+  .site-nav.open{animation:m-panel var(--m-base) var(--m-out) both}
+  .dropdown.open>.dropdown-menu{animation:m-submenu var(--m-base) var(--m-out) both}
+}
+@keyframes m-panel{from{opacity:0;transform:translate3d(0,-10px,0)}to{opacity:1;transform:none}}
+@keyframes m-submenu{from{opacity:0;transform:translate3d(0,-6px,0)}to{opacity:1;transform:none}}
+
+/* Active nav state — the underline grows from the centre rather than appearing */
+.site-nav .nav-link{position:relative}
+.site-nav>a.nav-link::after{
+  content:"";position:absolute;left:12px;right:12px;bottom:6px;height:2px;
+  background:var(--green);border-radius:2px;
+  transform:scaleX(0);transform-origin:center;
+  transition:transform var(--m-base) var(--m-out);
+}
+.site-nav>a.nav-link:hover::after,
+.site-nav>a.nav-link.is-current::after{transform:scaleX(1)}
+@media (max-width:1050px){.site-nav>a.nav-link::after{display:none}}
+
+/* Buttons — micro-interaction only, no growth that shifts neighbours */
+.btn{transition:transform var(--m-fast) var(--m-soft),
+                background-color var(--m-fast) var(--m-soft),
+                border-color var(--m-fast) var(--m-soft),
+                color var(--m-fast) var(--m-soft)}
+.btn:hover{transform:translate3d(0,-2px,0)}
+.btn:active{transform:translate3d(0,0,0);transition-duration:80ms}
+.btn>span{display:inline-block;transition:transform var(--m-base) var(--m-out)}
+.btn:hover>span{transform:translate3d(3px,0,0)}
+
+/* --------------------------------------------------------------------------
+   3. Cards — restrained lift, shadow via pseudo-element opacity (no animated
+   box-shadow, which is a paint-heavy property).
+   -------------------------------------------------------------------------- */
+.cap,.role,.out,.faq-item,.price-card,.eco-list a{
+  transition:transform var(--m-base) var(--m-out),
+             border-color var(--m-base) var(--m-soft);
+}
+.cap,.role,.price-card{position:relative}
+.cap::after,.role::after,.price-card::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  box-shadow:0 18px 38px rgba(16,42,39,.10);
+  opacity:0;transition:opacity var(--m-base) var(--m-soft);
+}
+a.cap:hover,.role:hover,.price-card:hover{transform:translate3d(0,-4px,0)}
+a.cap:hover::after,.role:hover::after,.price-card:hover::after{opacity:1}
+a.cap:hover,.eco-list a:hover{border-color:var(--green)}
+
+/* Card icons — a small, single-shot micro-move, never a loop */
+.cap-mark,.role i,.value-chip i{transition:transform var(--m-base) var(--m-out)}
+a.cap:hover .cap-mark,.role:hover i{transform:translate3d(0,-2px,0) scale(1.06)}
+.value-chip{transition:transform var(--m-base) var(--m-out),border-color var(--m-base) var(--m-soft)}
+.value-chip:hover{transform:translate3d(0,-2px,0);border-color:var(--green)}
+
+/* Homepage feature cards — the artwork drifts very slightly behind the content */
+.feature-grid .feature-card{transition:transform var(--m-base) var(--m-out),
+                                       border-color var(--m-base) var(--m-soft)}
+.feature-grid .feature-card:before{transition:transform var(--m-slow) var(--m-out)}
+.feature-grid .feature-card:hover:before{transform:scale(1.04)}
+.feature-grid .feature-card{overflow:hidden}
+
+/* Related pills and FAQ rows */
+.related a{transition:transform var(--m-fast) var(--m-soft),border-color var(--m-fast) var(--m-soft),color var(--m-fast) var(--m-soft)}
+.related a:hover{transform:translate3d(0,-2px,0)}
+.faq-item summary::after{transition:transform var(--m-base) var(--m-out),color var(--m-fast) var(--m-soft)}
+.faq-item[open]{border-color:#cfe0da}
+
+/* --------------------------------------------------------------------------
+   4. Product screenshots — depth, not decoration.
+   Different treatments so the same motion is not applied to every screen.
+   -------------------------------------------------------------------------- */
+.shot{perspective:900px}
+.shot-frame{
+  /* transform only — box-shadow is a paint-heavy property and is deliberately
+     not transitioned here despite the frame carrying a large shadow. */
+  transition:transform var(--m-slow) var(--m-out);
+  transform-style:preserve-3d;
+}
+/* Alternating lift gives a gallery a gentle rhythm instead of a flat row */
+.shot-row .shot:nth-child(even) .shot-frame{transform:translate3d(0,10px,0)}
+@media (min-width:1024px) and (pointer:fine){
+  .shot-frame:hover{transform:translate3d(0,-6px,0) scale(1.015)}
+  .shot-row .shot:nth-child(even) .shot-frame:hover{transform:translate3d(0,4px,0) scale(1.015)}
+  /* tilt values are written by motion.js on pointer move */
+  .shot-frame.m-tilt{
+    transition:transform 120ms linear;
+    transform:translate3d(0,-6px,0) rotateX(var(--m-rx,0deg)) rotateY(var(--m-ry,0deg)) scale(1.02);
+  }
+}
+/* Hero and lead imagery settle from a slight over-scale — a single slow move
+   that reads as the product coming into focus, not a looping ken-burns effect. */
+.hero-image-shell{overflow:hidden;border-radius:inherit}
+.hero-image-shell img{transform:scale(1.055);transition:transform 1100ms var(--m-out)}
+[data-m].m-in .hero-image-shell img,
+.hero-visual.visible .hero-image-shell img{transform:scale(1)}
+
+/* The mockup windows get the same depth language */
+.ui-win,.ui-phone{transition:transform var(--m-slow) var(--m-out)}
+@media (min-width:1024px) and (pointer:fine){
+  .prod-hero-visual .ui-win:hover,.prod-hero-visual .ui-phone:hover{transform:translate3d(0,-5px,0)}
+}
+
+/* --------------------------------------------------------------------------
+   5. Workflow — motion that explains the sequence.
+   Steps arrive in order; the connector draws in behind them; the number badge
+   settles last so the eye lands on the label first.
+   -------------------------------------------------------------------------- */
+.flow-step::after{transform:translateY(-50%) scaleX(0);transform-origin:left center;
+                  transition:transform var(--m-base) var(--m-out);
+                  transition-delay:calc(var(--m-i,0) * var(--m-step) + 200ms)}
+.flow-step.m-in::after{transform:translateY(-50%) scaleX(1)}
+.flow-step .flow-num{
+  position:relative;
+  transition:transform var(--m-slow) var(--m-out);
+  transition-delay:calc(var(--m-i,0) * var(--m-step) + 120ms);
+  transform:scale(.7);
+}
+/* Active-stage ring as an opacity fade rather than an animated box-shadow. */
+.flow-step .flow-num::after{
+  content:"";position:absolute;inset:-5px;border-radius:50%;
+  box-shadow:0 0 0 5px rgba(18,134,99,.14);
+  opacity:0;transition:opacity var(--m-base) var(--m-soft);
+}
+.flow-step.m-in .flow-num{transform:none}
+/* The stage the reader is currently on is emphasised, the rest recede slightly */
+.flow-step{transition:transform var(--m-base) var(--m-out),border-color var(--m-base) var(--m-soft)}
+.flow-step.m-active{border-color:#bfe0d2}
+.flow-step.m-active .flow-num::after{opacity:1}
+
+/* --------------------------------------------------------------------------
+   6. CTA sections — destinations, not decoration.
+   A single very slow gradient drift, paused whenever the section is off-screen.
+   -------------------------------------------------------------------------- */
+.final-cta,.sub-cta{position:relative;overflow:hidden}
+/* Both sections paint `background:var(--green)` on the element itself, so this layer
+   must sit ABOVE that background (z-index:0) with the content lifted above it —
+   at z-index:-1 the drift would render behind the green and never be visible. */
+.final-cta>*,.sub-cta>*{position:relative;z-index:1}
+.final-cta::before,.sub-cta::before{
+  content:"";position:absolute;inset:-30% -10%;z-index:0;pointer-events:none;
+  background:radial-gradient(46% 46% at 30% 35%,rgba(255,255,255,.13),transparent 60%),
+             radial-gradient(40% 40% at 72% 62%,rgba(255,255,255,.09),transparent 62%);
+  animation:m-drift var(--m-amb) var(--m-inout) infinite alternate;
+  animation-play-state:paused;
+}
+.final-cta.m-live::before,.sub-cta.m-live::before{animation-play-state:running}
+@keyframes m-drift{
+  from{transform:translate3d(-2%,-1%,0) scale(1)}
+  to  {transform:translate3d(2%,1.5%,0) scale(1.06)}
+}
+.cta-orb{transition:transform var(--m-slow) var(--m-out)}
+
+/* --------------------------------------------------------------------------
+   7. Parallax — opt-in, tiny amplitude, desktop only. motion.js writes --m-p.
+   -------------------------------------------------------------------------- */
+@media (min-width:1024px){
+  [data-parallax]{transform:translate3d(0,var(--m-p,0px),0);will-change:transform}
+}
+
+/* --------------------------------------------------------------------------
+   8. Section rhythm — headings lead, supporting copy follows. Keeps the page
+   reading as one continuous story rather than a stack of separate reveals.
+   -------------------------------------------------------------------------- */
+.prod-head[data-m],.section-heading[data-m]{--m-i:0}
+.prod-head.m-in h2,.section-heading.m-in h2{}
+.kicker{transition:color var(--m-base) var(--m-soft)}
+
+/* --------------------------------------------------------------------------
+   9. Responsive — simplify on small screens. Shorter travel, tighter stagger,
+   no parallax or tilt, so nothing lengthens the page or risks overflow.
+   -------------------------------------------------------------------------- */
+@media (max-width:1023px){
+  :root{--m-step:46ms;--m-slow:520ms}
+  [data-m="up"]{transform:translate3d(0,14px,0)}
+  [data-m="rise"]{transform:translate3d(0,18px,0) scale(.99)}
+  [data-m="left"],[data-m="right"]{transform:translate3d(0,14px,0)}
+  .shot-row .shot:nth-child(even) .shot-frame{transform:none}
+}
+@media (max-width:640px){
+  :root{--m-step:36ms;--m-slow:460ms}
+  /* cap cumulative delay so a long list never feels slow to appear */
+  [data-m]{transition-delay:calc(min(var(--m-i,0),4) * var(--m-step))}
+  .final-cta::before,.sub-cta::before{animation:none}
+}
+
+/* --------------------------------------------------------------------------
+   10. Reduced motion — content visible immediately, all decorative movement
+   removed, every interaction state preserved.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion:reduce){
+  [data-m],[data-m].m-in,.reveal{
+    opacity:1!important;transform:none!important;clip-path:none!important;
+    transition:none!important;transition-delay:0ms!important;
+  }
+  .flow-step::after{transform:translateY(-50%) scaleX(1)!important}
+  .flow-step .flow-num{transform:none!important}
+  [data-parallax]{transform:none!important}
+  .final-cta::before,.sub-cta::before{animation:none!important}
+  .site-nav.open,.dropdown.open>.dropdown-menu{animation:none!important}
+  .shot-frame.m-tilt{transform:none!important}
+  .btn:hover,a.cap:hover,.role:hover,.price-card:hover,.related a:hover,
+  .value-chip:hover,.shot-frame:hover{transform:none!important}
+  /* interaction feedback is kept, just without movement */
+  a.cap:hover,.eco-list a:hover{border-color:var(--green)}
+  .site-nav>a.nav-link.is-current::after{transform:scaleX(1)!important}
+}

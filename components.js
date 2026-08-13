@@ -28,7 +28,7 @@ const featureMenu=`<div class="dropdown-menu mega feature-menu">
 const solutionMenu=`<div class="dropdown-menu solution-menu">${solutionLinks.map(([href,label,note])=>note?`<a class="mega-lead" href="${href}"><b>${label}</b><small>${note}</small></a>`:`<a href="${href}">${label}</a>`).join('')}</div>`;
 
 const navMarkup=`<div class="container nav-wrap">
-    <a class="brand" href="index.html" aria-label="MOOREZY home"><img class="brand-logo" src="assets/moorezy-logo.png?v=20260810b" alt="MOOREZY" width="1536" height="1024"></a>
+    <a class="brand" href="index.html" aria-label="MOOREZY home"><img class="brand-logo" src="assets/moorezy-logo.png?v=20260813" alt="MOOREZY" width="768" height="512"></a>
     <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span class="sr-only">Menu</span></button>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
       <div class="nav-item dropdown"><button class="nav-link dropdown-toggle" aria-expanded="false">Solutions <span aria-hidden="true">⌄</span></button>${solutionMenu}</div>
@@ -51,7 +51,7 @@ const navMarkup=`<div class="container nav-wrap">
 
 const footerMarkup=`<div class="container footer-grid">
   <div class="footer-brand">
-    <a class="brand brand-light" href="index.html"><img class="brand-logo" src="assets/moorezy-logo.png?v=20260810b" alt="MOOREZY" width="1536" height="1024"></a>
+    <a class="brand brand-light" href="index.html"><img class="brand-logo brand-logo-wide" src="assets/moorezy-logo-wide.png?v=20260813" alt="MOOREZY — Laundry Management Software" width="760" height="306"></a>
     <p>The operating system for modern laundry and dry-cleaning businesses.</p>
     <div class="socials"><a href="https://www.linkedin.com/" aria-label="MOOREZY on LinkedIn" rel="noopener">in</a><a href="https://www.facebook.com/" aria-label="MOOREZY on Facebook" rel="noopener">f</a><a href="https://www.instagram.com/" aria-label="MOOREZY on Instagram" rel="noopener">◎</a></div>
   </div>

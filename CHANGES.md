@@ -336,3 +336,111 @@ and [b2b.html](b2b.html) (1 shot each), plus the 2-shot pages.
 
   This closes the gap flagged earlier: jsdom has no layout engine, which is precisely why these
   three bugs reached you rather than being caught here.
+
+---
+---
+
+# Motion system
+
+Two new shared files, wired into all 40 pages. **No animation library.**
+
+| File | Size | Role |
+|---|---|---|
+| [motion.css](motion.css) | ~14 KB | The motion language: tokens, reveal utilities, component motion |
+| [motion.js](motion.js) | ~11 KB | One IntersectionObserver, one rAF loop, automatic tagging |
+
+Combined ~25 KB uncompressed (~6 KB gzipped). `dist` went 8.19 → 8.22 MB.
+
+## The reference, used as reference
+
+I loaded `infinity-unisex.netlify.app` in Chromium and inspected it rather than eyeballing it.
+It runs **no animation library at all** — zero external scripts, pure CSS keyframes plus
+observers, transitions in a 0.3–0.6s band, `will-change: transform` only. That validated the
+no-library approach and the duration range.
+
+Three of its ideas were worth adapting to a SaaS context: a **progressive line fill**
+(→ the workflow connector), a **slow settle-scale on imagery** (→ the hero image resolving into
+focus), and **ambient background drift** (→ the CTA sections). Its `marquee`, `pulse`, `statGlow`
+and `markSpin` loops were not taken: they are constant movement, which the brief rules out.
+Nothing of its branding, layout, assets or code was used.
+
+## Design
+
+**Tokens** — `--m-fast:220ms` / `--m-base:420ms` / `--m-slow:620ms`, ambient drift at 26s.
+Easing is expo-out `cubic-bezier(.16,1,.3,1)` for settles and quad-out for UI. No bounce anywhere.
+
+**Reveal utilities** — elements carry `data-m="up|rise|fade|scale|left|right|mask"` and settle to
+`.m-in`. Stagger comes from a `--m-i` index. `mask` (a clip-path wipe) is deliberately used **once
+per page**, on the lead product-screenshot heading, so it stays a moment rather than a mannerism.
+
+**No markup churn.** `motion.js` assigns `data-m` itself from a selector plan, so the same system
+covers all 40 pages with zero per-page implementations. It also hands off from the legacy
+`.reveal` class where a parent and its children would otherwise both animate.
+
+## What animates, and why
+
+| Area | Motion | Purpose |
+|---|---|---|
+| Hero | Headline → copy → CTAs → visual, staggered; image settles from 1.055 scale | Establishes hierarchy in reading order |
+| Nav | Mega-menu fade + 6px rise, mobile panel entrance, centre-out active underline | Makes state changes legible |
+| Workflow | Sequential step reveal, connector draws left→right, badge settles last, active stage ringed on scroll | Explains the sequence |
+| Screenshots | Staggered rise, alternating offsets, ≤5° hover tilt with perspective | Gives real screens physical presence |
+| Cards | 4px lift, border shift, shadow via pseudo-element opacity, icon micro-move | Restrained affordance |
+| CTA | 26s gradient drift, paused off-screen | Makes the destination feel like one |
+
+Elements not on that list stay still deliberately.
+
+## Constraints honoured
+
+- **transform / opacity / clip-path only** — no layout-shifting properties animate.
+- **No animated `box-shadow` anywhere.** Card shadows and the workflow ring fade a pseudo-element's
+  opacity instead. Verified: zero `transition:...box-shadow` in motion.css.
+- **Nothing runs off-screen.** The CTA drift is declared `animation-play-state:paused` and only
+  runs while an observer says the section is visible. The parallax rAF loop only spins while a
+  parallax element is on screen and stops when the list empties.
+- **`will-change` is temporary** — added while a reveal is pending, removed on `transitionend`.
+- **Parallax and tilt are desktop + fine-pointer only**, amplitude capped at 34px and 5°.
+- **Mobile simplifies**: shorter travel, tighter stagger, cumulative delay capped at 4 steps so a
+  long list never feels slow, ambient drift off below 640px.
+- **Failsafe**: if an observer never fires, a 2.6s timer settles anything still hidden — content
+  can never be permanently invisible.
+
+## Bug caught while building
+
+The ambient CTA layer was written at `z-index:-1`, but `.final-cta` and `.sub-cta` both paint
+`background:var(--green)` on the element itself — so the drift would have rendered *behind* the
+green and never been visible. It now sits at `z-index:0` with content lifted above it.
+
+---
+---
+
+# Final production verification — 13 Aug 2026
+
+## Logos
+| Placement | Asset | Reach |
+|---|---|---|
+| Navbar / header | `assets/moorezy-logo.png` (145 KB, 768×512) | 40 pages, via components.js |
+| Footer | `assets/moorezy-logo-wide.png` (204 KB, 760×306) | 40 pages, via components.js |
+| Login + Register | `assets/moorezy-logo-wide.png` | 2 pages |
+| Browser tab | `assets/favicon.png` (17 KB, 180×180 square) | 40 pages |
+
+Wide lockup needed its own sizing (`product.css` + `auth.css`) because styles.css sizes
+`.brand-logo` as 3:2 and letterboxed a 2.48:1 image. Auth pages don't load product.css.
+Favicon was a 3:2 image drawn into a square tab slot — now a square crop of the ME monogram.
+`moorezy-logo-white.png` was a 2 MB favicon on 6 pages; unified and archived.
+
+**dist: 8.22 MB → 4.72 MB (−43%)**
+
+## Final sweep (serial, definitive)
+```
+40 pages × 7 widths (1440/1366/1024/768/430/390/375) = 280 checks
+console/runtime errors 0 · horizontal overflow 0 · CLS 0 · stuck content 0*
+reduced motion, 40 pages 0 issues
+workflow 14/14 settled, 14 numbers white
+nav dropdown ✓ focus 3px ✓ tilt ✓ ambient paused→running ✓ parallax 5.6→34px ✓
+mobile menu scrollable/fits/aria/locked ✓ touch targets <40px 0
+links 0 broken · a11y 0 issues · CTA 40/40
+```
+\* One flagged item (customer-management @768) proved CLEAN 3/3 standalone — measurement
+flake under load, not a defect. Running Phase A in parallel starved transitions and produced
+8 further false positives; serialising removed them.
